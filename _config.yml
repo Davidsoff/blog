@@ -19,8 +19,24 @@ description: > # this means to ignore newlines until "baseurl:"
   Ramblings of a magpie developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost" # the base hostname & protocol for your site
-twitter_username: davidsoff
+twitter_username: SoffDavid
 github_username:  Davidrums
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  auto_ids: true
+  input: GFM
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+defaults:
+-
+  scope:
+    path: "" # an empty string here means all files in the project
+    type: "posts" # previously `post` in Jekyll 2.2.
+  values:
+    comments: true
+    author: David
