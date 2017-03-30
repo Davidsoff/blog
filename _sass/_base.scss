@@ -122,6 +122,25 @@ a[href*="davidsoff-20"] {
       }
 }
 
+a[href*="pragprog.com/book"] {
+      color: $reading-color;
+      text-decoration: none;
+
+      &:after {
+        font-family: FontAwesome;
+        content: " \f08e";
+        font-size: $small-font-size * 0.7
+      }
+
+      &:visited {
+          color: lighten($reading-color, 20%);
+      }
+
+      &:hover {
+          color: darken($reading-color, 20%);
+      }
+}
+
 
 /**
  * Blockquotes
