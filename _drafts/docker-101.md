@@ -24,6 +24,16 @@ please clone https://github.com/Davidsoff/docker101 for the hands-on part
 </section>
 
 <section data-markdown>
+## Docker vs VM
+ ![vs vm](/images/docker-vm-container.png)
+</section>
+
+<section data-markdown>
+## Architecture
+ ![architecture](/images/architecture.svg)
+</section>
+
+<section data-markdown>
 ## How to use Docker?
  Download it from [docker.com](https://www.docker.com/community-edition)
 </section>
