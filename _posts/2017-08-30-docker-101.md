@@ -101,10 +101,12 @@ simple customised Hello World spring boot application
 </section>
 
 <section data-markdown>
-## Builder Images
+## Multistage builds
 
+- New feature in Docker 17.05
 - Separates build environment and runtime environment
 - Optimised containers for each role
+- Allows for very small containers
 
 </section>
 
