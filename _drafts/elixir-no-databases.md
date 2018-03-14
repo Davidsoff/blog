@@ -1,7 +1,7 @@
 ---
 layout: presentation
-title: Statefull API's and why databases are overrated
-summary: 
+title: Stateful API's and why databases are overrated
+summary:
 theme: black
 transition: slide
 ---
@@ -18,4 +18,3 @@ transition: slide
 <section data-markdown>
 	## Why do we use stateless API's?
 </section>
-
