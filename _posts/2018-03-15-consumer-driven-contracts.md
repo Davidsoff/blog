@@ -22,3 +22,4 @@ This post groups all sources I have found useful when preparing my presentation 
 - [Pact Broker](https://github.com/pact-foundation/pact_broker)
 - [Pact standalone (especially the can-i-deploy section)](https://github.com/pact-foundation/pact-ruby-standalone/releases)
 - [Pact implementation for DotNet](https://github.com/pact-foundation/pact-net)
+- [Pact JS Demo](https://github.com/pact-foundation/pact-js/tree/master/examples/e2e)
