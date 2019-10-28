@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MagPie DevOps</title>
+    <link>https://davidsoff.nl/</link>
+    <description>Recent content on MagPie DevOps</description>
+    <generator>Hugo - gohugo.io</generator>
+    <language>en</language>
+    <contact>david@soff.nl</contact>
+    <copyright>All Rights Reserved <a href="https://github.com/DavidSoff">David Soff</a> 2019</copyright>
+    
+        <atom:link href="https://davidsoff.nl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blogs</title>
+      <link>https://davidsoff.nl/blog/</link>
+      <pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate>
+      <author>David Soff</author>
+      <guid>https://davidsoff.nl/blog/</guid>
+      <description></description>
+      
+      <content></content>
+      
+    </item>
+    
+  </channel>
+</rss>
