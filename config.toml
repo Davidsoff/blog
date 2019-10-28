@@ -2,7 +2,7 @@ baseURL = "https://davidsoff.nl/"
 languageCode = "en-us"
 title = "MagPie DevOps"
 theme = "kiss"
-copyright = "&copy; <a href=\"https://github.com/DavidSoff\">David Soff</a> 2019"
+copyright = "All Rights Reserved <a href=\"https://github.com/DavidSoff\">David Soff</a> 2019"
 disqusShortname = "davidsoff-nl"
 googleAnalytics = "UA-151064893-1"
 Paginate = 5 # Number of posts per page
@@ -17,7 +17,7 @@ authorEmail = "david@soff.nl" # Author email
 adsense = "" # Adsense ID (ID only, without ca-pub-)
 enableSocial = true # Adds OpenGraph and Twitter cards
 homeTitle = "Home" # Title for home page
-poweredby = true # Adds powered by hugo and kiss below Copyright
+poweredby = false # Adds powered by hugo and kiss below Copyright
 related = true # Includes related articles at the bottom of the article
 codeCopy = true # Add copy button above code blocks
 
@@ -32,7 +32,7 @@ linkedin = "davidsoff"
 rss = "index.xml" # Add this to show RSS button in social.
 
 [params.social.config]
-platforms = ["github","twitter","email","linkedin"]
+platforms = ["github","twitter","email","linkedin", "rss"]
 
 [taxonomies]
 tag ="tags"
