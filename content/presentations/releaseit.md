@@ -72,3 +72,34 @@ Testing is easy once you know what to look for
 > .origin[Michael T. Nygard]
 
 ---
+
+# Goal
+
+## Prevent bugs from causing a chain of failures.
+
+---
+layout: true
+class: left, middle
+
+---
+
+# Defining Stability
+
+- **Transaction**: Abstract unit of work processed by the system.
+- **System**: Everything needed to process a transaction.
+- **Impulse**: A rapid shock to the system.
+- **Stress**: A force applied to the system over a longer period of time.
+- **Strain**: A change in the "shape" of the system caused by stress.
+
+---
+
+layout: true
+class: center, middle
+
+---
+
+# Both *Impulses* and *Stress* can cause excessive *S train*
+
+---
+
+[[insert glas shattering and metal fatigue gifs here]]
