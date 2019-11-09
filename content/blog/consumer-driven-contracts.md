@@ -5,7 +5,7 @@ draft: false
 ---
 
 This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.
-
+<!--more-->
 ## Generic sources
 - [Integrated Tests Are A Scam](https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam)
 - [microservice testing slides 18-19](https://martinfowler.com/articles/microservice-testing/#testing-contract-introduction)
