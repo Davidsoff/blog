@@ -18,8 +18,7 @@
       <pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate>
       
       <guid>https://davidsoff.nl/blog/consumer-driven-contracts/</guid>
-      <description> This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.
-Generic sources  Integrated Tests Are A Scam microservice testing slides 18-19 Consumer-Driven Contracts: A Service Evolution Pattern tough read, but the end really helped me clear up some things. Pact explanation of Consumer Driven Contracts Thoughtworks technology radar 7 Reasons to Choose Consumer-Driven Contract Tests Over End-to-End Tests Intro to the pact matrix  Pact  Consumer Driven Contract Testing with Pact Advanced Contract Testing - Pact Verification with Pattern Matching Pact Broker Pact standalone (especially the can-i-deploy section) Pact implementation for DotNet Pact JS Demo  </description>
+      <description>&lt;p&gt;This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p&gt;</description>
     </item>
     
   </channel>
