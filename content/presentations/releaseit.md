@@ -96,10 +96,10 @@ class: left, middle
 
 layout: true
 class: center, middle
-
+s
 ---
 
-# Both *Impulses* and *Stress* can cause excessive *S train*
+# Both *Impulses* and *Stress* can cause excessive *Strain*
 
 ---
 
