@@ -7,18 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All Rights Reserved &lt;a href=&#34;https://github.com/DavidSoff&#34;&gt;David Soff&lt;/a&gt; 2019</copyright>
-    <lastBuildDate>Wed, 30 Aug 2017 16:12:32 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2019 12:55:23 +0100</lastBuildDate>
     
 	<atom:link href="https://www.davidsoff.nl/presentations/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Docker 101</title>
-      <link>https://www.davidsoff.nl/presentations/docker-101/</link>
-      <pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate>
+      <title>Intro to DNS</title>
+      <link>https://www.davidsoff.nl/presentations/dns/</link>
+      <pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate>
       
-      <guid>https://www.davidsoff.nl/presentations/docker-101/</guid>
-      <description>Docker 101 By David Soff Before I start: please clone https://github.com/Davidsoff/docker101 for the hands-on part What is Docker?  Lightweight containers Only share the kernel of the host Smaller and quicker to start than VMs typically only runs a single proccess  Docker vs VM  Architecture  How to use Docker? Download it from docker.com building images pt. 1 create a build description in a Dockerfile building images pt.</description>
+      <guid>https://www.davidsoff.nl/presentations/dns/</guid>
+      <description>A short introduction into the innerworkings of DNS</description>
     </item>
     
   </channel>
