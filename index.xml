@@ -3,37 +3,135 @@
     <title>MagPie DevOps</title>
     <link>https://www.davidsoff.nl/</link>
     <description>Recent content on MagPie DevOps</description>
-    <generator>Hugo - gohugo.io</generator>
-    <language>en</language>
-    <contact>david@soff.nl</contact>
-    <copyright>All Rights Reserved <a href="https://github.com/DavidSoff">David Soff</a> 2019</copyright>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All Rights Reserved &lt;a href=&#34;https://github.com/DavidSoff&#34;&gt;David Soff&lt;/a&gt; 2019</copyright>
+    <lastBuildDate>Mon, 11 Nov 2019 12:55:23 +0100</lastBuildDate>
     
         <atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Presentations</title>
-      <link>https://www.davidsoff.nl/presentations/</link>
+      <title>Intro to DNS</title>
+      <link>https://www.davidsoff.nl/presentations/dns/</link>
       <pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate>
-      <author>David Soff</author>
-      <guid>https://www.davidsoff.nl/presentations/</guid>
-      <description></description>
       
-      <content></content>
-      
+      <guid>https://www.davidsoff.nl/presentations/dns/</guid>
+      <description>A short introduction into the innerworkings of DNS</description>
+<content>
+
+&lt;p&gt;layout: true&lt;/p&gt;
+
+&lt;p&gt;class: center, middle&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;intro-to-dns&#34;&gt;Intro to DNS&lt;/h1&gt;
+
+&lt;p&gt;By: David Soff (@SoffDavid)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;dns&#34;&gt;DNS&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;d-omain-n-ame-s-ystem&#34;&gt;&lt;strong&gt;D&lt;/strong&gt;omain &lt;strong&gt;N&lt;/strong&gt;ame &lt;strong&gt;S&lt;/strong&gt;ystem&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;basically-the-phonebook-of-the-internet&#34;&gt;Basically the phonebook of the internet&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h1&gt;
+
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;h2 id=&#34;a-browser-or-device-called-the-dns-client-issues-a-dns-request-for-example-google-com&#34;&gt;A browser or device called the &lt;em&gt;DNS client&lt;/em&gt; issues a &lt;em&gt;DNS Request&lt;/em&gt;. For example: &lt;em&gt;google.com&lt;/em&gt;&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;the-request-is-received-by-the-dns-resolver-the-resolver-starts-to-look-for-a-dns-server-that-holds-the-ip-address-for-the-domain&#34;&gt;The request is received by the &lt;em&gt;DNS resolver&lt;/em&gt;. The resolver starts to look for a DNS server that holds the ip address for the domain&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;the-resolver-starts-at-the-internets-root-dns-server-to-find-the-t-op-l-evel-d-omain-server&#34;&gt;The resolver starts at the internets &lt;em&gt;Root DNS server&lt;/em&gt; to find the &lt;strong&gt;T&lt;/strong&gt;op &lt;strong&gt;L&lt;/strong&gt;evel &lt;strong&gt;D&lt;/strong&gt;omain* server.&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;the-resolver-then-goes-to-the-server-responsible-for-the-domain-if-there-are-subdomains-managed-by-a-different-server-the-resolver-wil-go-to-those-servers&#34;&gt;The resolver then goes to the server responsible for the &lt;em&gt;domain&lt;/em&gt;. If there are &lt;em&gt;subdomains&lt;/em&gt; managed by a different server, the resolver wil go to those servers.&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;once-the-resolver-gets-to-the-authoritative-dns-server-for-the-specific-domain-that-dns-server-will-return-de-requested-data-to-the-resolver-the-request-is-now-resolved&#34;&gt;Once the resolver gets to the &lt;em&gt;authoritative DNS server&lt;/em&gt; for the specific &lt;em&gt;domain&lt;/em&gt;, that DNS server will return de requested data to the resolver. The request is now resolved.&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The client can now connect to the correct server with the returned IP address.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;now-some-terms&#34;&gt;Now some terms:&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS client&lt;/strong&gt;: Any device making a DNS request&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DNS resolver&lt;/strong&gt;: The program or server the DNS client is sending the DNS request to.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Root DNS server&lt;/strong&gt;: These servers know where all the DNS servers for the Top Level Domains are.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Authoritative DNS server&lt;/strong&gt;: These servers are the one and only source where you can get the address information for a specific domain.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DNS request&lt;/strong&gt;: A request for the DNS information associated with a particular domain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;other-interesting-things&#34;&gt;Other interesting things&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DNS resolvers may cache the responses they get for a request.&lt;/li&gt;
+&lt;li&gt;A response contains a &lt;strong&gt;T&lt;/strong&gt;ime-&lt;strong&gt;T&lt;/strong&gt;o-&lt;strong&gt;L&lt;/strong&gt;ive field which is meant to be an indicator of how long the DNS record should be kept in the cache.&lt;/li&gt;
+&lt;li&gt;A resolver does not have to respect the TTL field of a DNS response. for example: Some mobile phone plans cache responses for at least 2 hours. Lower values for the TTL are not respected.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;thank-you&#34;&gt;Thank you&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;sources-and-more-information&#34;&gt;Sources and more information:&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ns1.com/resources/dns-protocol&#34; target=&#34;_blank&#34;&gt;https://ns1.com/resources/dns-protocol&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&#34; target=&#34;_blank&#34;&gt;https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/learning/dns/what-is-dns/&#34; target=&#34;_blank&#34;&gt;https://www.cloudflare.com/learning/dns/what-is-dns/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
     <item>
-      <title>Blogs</title>
-      <link>https://www.davidsoff.nl/blog/</link>
+      <title>Consumer Driven Contracts</title>
+      <link>https://www.davidsoff.nl/blog/consumer-driven-contracts/</link>
       <pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate>
-      <author>David Soff</author>
-      <guid>https://www.davidsoff.nl/blog/</guid>
-      <description></description>
       
-      <content></content>
-      
+      <guid>https://www.davidsoff.nl/blog/consumer-driven-contracts/</guid>
+      <description>&lt;p&gt;This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p&gt;</description>
+<content>&lt;p&gt;This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p&gt;
+
+&lt;h2 id=&#34;generic-sources&#34;&gt;Generic sources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam&#34; target=&#34;_blank&#34;&gt;Integrated Tests Are A Scam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://martinfowler.com/articles/microservice-testing/#testing-contract-introduction&#34; target=&#34;_blank&#34;&gt;microservice testing slides 18-19&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://martinfowler.com/articles/consumerDrivenContracts.html&#34; target=&#34;_blank&#34;&gt;Consumer-Driven Contracts: A Service Evolution Pattern&lt;/a&gt; tough read, but the end really helped me clear up some things.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://thoughtworks.github.io/pacto/patterns/cdc/&#34; target=&#34;_blank&#34;&gt;Pact explanation of Consumer Driven Contracts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing&#34; target=&#34;_blank&#34;&gt;Thoughtworks technology radar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://reflectoring.io/7-reasons-for-consumer-driven-contracts/&#34; target=&#34;_blank&#34;&gt;7 Reasons to Choose Consumer-Driven Contract Tests Over End-to-End Tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rea.tech/enter-the-pact-matrix-or-how-to-decouple-the-release-cycles-of-your-microservices/&#34; target=&#34;_blank&#34;&gt;Intro to the pact matrix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;pact&#34;&gt;Pact&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.risingstack.com/consumer-driven-contract-testing-with-pact/&#34; target=&#34;_blank&#34;&gt;Consumer Driven Contract Testing with Pact&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.risingstack.com/advanced-contract-testing-pact-verification-with-pattern-matching/&#34; target=&#34;_blank&#34;&gt;Advanced Contract Testing - Pact Verification with Pattern Matching&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact_broker&#34; target=&#34;_blank&#34;&gt;Pact Broker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-ruby-standalone/releases&#34; target=&#34;_blank&#34;&gt;Pact standalone (especially the can-i-deploy section)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-net&#34; target=&#34;_blank&#34;&gt;Pact implementation for DotNet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-js/tree/master/examples/e2e&#34; target=&#34;_blank&#34;&gt;Pact JS Demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
     </item>
     
   </channel>
-</rss>
+</rss> 
