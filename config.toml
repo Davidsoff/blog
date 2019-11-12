@@ -25,14 +25,14 @@ related = true # Includes related articles at the bottom of the article
 codeCopy = true # Add copy button above code blocks
 
 [params.features]
-disqusOnDemand = true  # Load Disqus comments on click
+disqusOnDemand = true
 
 [params.social]
 twitter = "SoffDavid"
 github = "DavidSoff"
 email = "david@soff.nl"
 linkedin = "davidsoff"
-rss = "index.xml" # Add this to show RSS button in social.
+rss = "index.xml"
 
 [params.social.config]
 platforms = ["github","twitter","email","linkedin", "rss"]
@@ -42,3 +42,6 @@ tag ="tags"
 
 [blackfriday]
 hrefTargetBlank = true
+
+[params.assets]
+customCSS = ["css/index.css", "css/presentation.css"]

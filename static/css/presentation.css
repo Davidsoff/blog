@@ -1,0 +1,56 @@
+div.remark-slides-area {
+    font-family: Sans-Serif;
+}
+
+div.remark-slides-area h1,
+div.remark-slides-area h2,
+div.remark-slides-area h3 {
+    font-family: Sans-Serif;
+    font-weight: normal;
+}
+
+div.remark-slides-area .remark-code,
+div.remark-slides-area .remark-inline-code {
+    font-family: 'Ubuntu Mono';
+}
+
+div.remark-slides-area .bold {
+    font-weight: bold;
+}
+
+div.remark-slides-area blockquote {
+    font-size: 1.4em;
+    width: 80%;
+    margin: 50px auto;
+    font-style: italic;
+    color: #555555;
+    padding: 1.2em 30px 1.2em 75px;
+    border-left: 8px solid #78C0A8;
+    line-height: 1.6;
+    position: relative;
+    background: #EDEDED;
+}
+
+div.remark-slides-area blockquote::before {
+    font-family: Arial;
+    content: "\201C";
+    color: #78C0A8;
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+div.remark-slides-area blockquote::after {
+    content: '';
+}
+
+div.remark-slides-area blockquote span {
+    display: block;
+    color: #333333;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+body > div.remark-slides-area > div.remark-slide-container.remark-visible > div.remark-slide-scaler > div > div > blockquote > p > span

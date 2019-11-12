@@ -1,0 +1,20 @@
+article {
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: coral;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+article.presentation {
+    border-left-color: cornflowerblue;
+}
+
+article.blog {
+    border-left-color: darkkhaki;
+}
+
+article > h2 > span {
+    background: red;
+    text-align: right;
+}
