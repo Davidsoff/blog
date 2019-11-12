@@ -42,3 +42,6 @@ tag ="tags"
 
 [blackfriday]
 hrefTargetBlank = true
+
+[params.assets]
+customCSS = ["css/custom.css"]
