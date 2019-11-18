@@ -64,4 +64,79 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-ruby-standalone/releases&#34; target=&#34;_blank&#34;&gt;Pact standalone (especially the can-i-deploy section)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-net&#34; target=&#34;_blank&#34;&gt;Pact implementation for DotNet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-js/tree/master/examples/e2e&#34; target=&#34;_blank&#34;&gt;Pact JS Demo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content></item></channel></rss>
+&lt;/ul&gt;</content></item><item><title>Docker 101</title><link>https://www.davidsoff.nl/presentation/docker-101/</link><pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/docker-101/</guid><description>An introductory look at Docker</description><content>
+&lt;p&gt;layout: true&lt;/p&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;docker-101&#34;&gt;Docker 101&lt;/h2&gt;
+&lt;p&gt;By David Soff&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;before-i-start&#34;&gt;Before I start:&lt;/h2&gt;
+&lt;p&gt;please clone &lt;a href=&#34;https://github.com/Davidsoff/docker101&#34; target=&#34;_blank&#34;&gt;https://github.com/Davidsoff/docker101&lt;/a&gt; for the hands-on part&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;what-is-docker&#34;&gt;What is Docker?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lightweight containers&lt;/li&gt;
+&lt;li&gt;Only share the kernel of the host&lt;/li&gt;
+&lt;li&gt;Smaller and quicker to start than VMs&lt;/li&gt;
+&lt;li&gt;typically only runs a single proccess&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;docker-vs-vm&#34;&gt;Docker vs VM&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;docker-vm-container.png&#34; alt=&#34;vs vm&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;architecture.svg&#34; alt=&#34;architecture&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;how-to-use-docker&#34;&gt;How to use Docker?&lt;/h2&gt;
+&lt;p&gt;Download it from &lt;a href=&#34;https://www.docker.com/community-edition&#34; target=&#34;_blank&#34;&gt;docker.com&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;building-images-pt-1&#34;&gt;building images pt. 1&lt;/h2&gt;
+&lt;p&gt;create a build description in a Dockerfile&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;building-images-pt-2&#34;&gt;building images pt. 2&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t my-image .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;running-images&#34;&gt;running images&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --name my-container -p 8080:80 my-image
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;viewing-containers&#34;&gt;viewing containers&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker ps
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;stopping-images&#34;&gt;stopping images&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker kill my-container
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;hands-on-time&#34;&gt;Hands-on time!&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;static-application&#34;&gt;Static application&lt;/h2&gt;
+&lt;p&gt;simple serving of html files&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;dynamic-application&#34;&gt;Dynamic application&lt;/h2&gt;
+&lt;p&gt;simple customised Hello World spring boot application&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;multi-container-setups&#34;&gt;Multi container setups&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Applications need storage&lt;/li&gt;
+&lt;li&gt;One process per container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;docker-compose&#34;&gt;Docker Compose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;lightweight container orchestration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;multistage-builds&#34;&gt;Multistage builds&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;New feature in Docker 17.05&lt;/li&gt;
+&lt;li&gt;Separates build environment and runtime environment&lt;/li&gt;
+&lt;li&gt;Optimised containers for each role&lt;/li&gt;
+&lt;li&gt;Allows for very small containers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions?&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;thank-you&#34;&gt;Thank you!&lt;/h2&gt;</content></item></channel></rss>

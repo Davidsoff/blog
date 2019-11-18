@@ -9,11 +9,6 @@ div.remark-slides-area h3 {
     font-weight: normal;
 }
 
-div.remark-slides-area .remark-code,
-div.remark-slides-area .remark-inline-code {
-    font-family: 'Ubuntu Mono';
-}
-
 div.remark-slides-area .bold {
     font-weight: bold;
 }
@@ -53,4 +48,4 @@ div.remark-slides-area blockquote span {
     margin-top: 1em;
 }
 
-body > div.remark-slides-area > div.remark-slide-container.remark-visible > div.remark-slide-scaler > div > div > blockquote > p > span
+body>div.remark-slides-area>div.remark-slide-container.remark-visible>div.remark-slide-scaler>div>div>blockquote>p>span
