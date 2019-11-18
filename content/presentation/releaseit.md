@@ -96,11 +96,77 @@ class: left, middle
 
 layout: true
 class: center, middle
-s
+
 ---
 
 # Both *Impulses* and *Stress* can cause excessive *Strain*
 
 ---
 
-[[insert glas shattering and metal fatigue gifs here]]
+# Stability antipatterns
+
+- Integration points
+- Chain reactions
+- Cascading failures
+- Users
+- Blocked threads
+- Self-denial attacks
+- Scaling effects
+- Unbalanced capacities
+- Dogpile
+- Force multiplier
+- Slow responses
+- Unbounded result sets
+
+---
+
+# Stability antipatterns
+
+- Integration points
+- **Chain reactions**
+- **Cascading failures**
+- Users
+- Blocked threads
+- Self-denial attacks
+- **Scaling effects**
+- Unbalanced capacities
+- Dogpile
+- **Force multiplier**
+- **Slow responses**
+- Unbounded result sets
+
+
+???
+
+I will be talking about these specific antipatterns as I've seen them happen in production.
+
+---
+
+# Chain reactions
+
+???
+These happen in horizontally scaled apps. Once one of the nodes in the group crashes, the loadbalancer will distribute the load of that node to the other healthy nodes which as a result might also start failing. worst case this keeps happening untill all nodes are down and your service is unreachable. 
+
+IT may be the beginning of a cascading failure
+
+---
+
+# Cascading failures
+
+???
+These happen when an outage in one service also causes failures in other upstream and downstream services. This may be because of poorly isolated calls to the broken service. These can usually be prevented by employing Circuit-Breakers and Timeouts
+
+---
+
+# Scaling effects
+
+???
+More clients can mean more trouble, a backend server might be able to handle ten frontend services calling it, but it may crash when it is a hundred calling.
+
+---
+
+# Force multiplier
+
+---
+
+# Slow responses

@@ -20,3 +20,5 @@ By: David Soff (@SoffDavid)
 ---
 
 # Thank you
+
+you can find the slides at {{ .Permalink }}
