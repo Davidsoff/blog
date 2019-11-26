@@ -14,7 +14,16 @@ article.blog {
     border-left-color: darkkhaki;
 }
 
-article > h2 > span {
+article.talk {
+    border-left-color: lightcoral;
+}
+
+article>h2>span {
     background: red;
     text-align: right;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
 }

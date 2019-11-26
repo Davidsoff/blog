@@ -1,0 +1,12 @@
+digraph G {
+
+  node [shape=box];
+  lb [label=loadbalancer];
+  s1 [label= server1 color=red]
+  s2 [label= server2 color=red]
+  s3 [label= server3 color=red]
+  s4 [label= server4 color=red]
+  
+  lb -> s1,s2,s3,s4
+  
+}

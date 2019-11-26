@@ -1,0 +1,87 @@
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      {{ if .Params.tags }}
+      {{ partial "tags" .Params.tags }}
+      {{ end }}
+    </div>
+    {{if not .Date.IsZero }}<h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>{{ end }}
+    <h1 class="title">{{ .Title }}</h1>
+    {{ if and (.Site.Params.Info.adsense) (.Params.adsenseTop) }}
+    {{ partial "adsense" . }}
+    {{ end }}
+    <div class="content">
+      <div>
+        {{ with .Params.slides }}
+        <p><button id="slides_link" href="{{ . | absURL }}">Slides</button><p>
+        {{ end }}
+        {{ with .Params.video }}
+        <a id="video_link" href="{{ . }}">Video</a>
+        {{ end }}
+        {{ .Content }}
+      </div>
+      {{ if .Site.Params.Info.related }}
+      <div class="related">{{ partial "related" . }}</div>
+      {{ end }}
+    </div>
+    {{ if and (.Site.Params.Info.adsense)  (.Params.adsenseBottom) }}
+    {{ partial "adsense" . }}
+    {{ end}}
+  </div>
+</section>
+{{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
+    <script src="/js/copycode.js"></script>
+{{ end }}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+// Add event handlers to slide and video links, to open them in an iframe popup.
+$( function() {
+	if ( $( "#slides_link" ).length ) {
+		$("#slides_link").click(function(eventObject) {
+			eventObject.preventDefault();
+			var elem = $( this );
+			elem.parent().next("iframe").remove();
+			var href = elem.attr("href");
+			switch(true) {
+			case /\.pdf$/.test(href):
+				elem.parent().after($("<iframe frameborder=0 src='/js/pdfjs/web/viewer.html?file=" + href + "'></iframe>"));
+				break;
+			default:
+				elem.parent().after($("<iframe frameborder=0 src='" + elem.attr("href") + "'></iframe>"));
+				// default is just to iframe in the slides page.
+			}
+			var width = elem.parent().next("iframe").width();
+			var height = Math.round(width * 9 / 16);
+			elem.parent().next("iframe").height(height);
+		});
+	}
+	if ( $( "#video_link" ).length ) {
+		$("#video_link").click(function(eventObject) {
+			var elem = $( this );
+			elem.parent().next("iframe").remove();
+			var href = elem.attr("href");
+			switch(true) {
+			case /youtube.com/.test(href):
+				eventObject.preventDefault();
+				href = href.replace("watch?v=", "embed/");
+				elem.parent().after($("<iframe frameborder=0 src='" + href + "' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"));
+				break;
+			default:
+				// default is just to follow the link.
+				// TODO: add a vimeo embedder here? If you're reading this source code, please submit a PR
+				// for other video sources you want to be supported here.
+			}
+			var width = elem.parent().next("iframe").width();
+			var height = Math.round(width * 9 / 16);
+			elem.parent().next("iframe").height(height);
+		});
+	}
+});
+</script>
+{{ partial "disqus" . }}
+{{ partial "footer" . }}
