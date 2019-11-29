@@ -19,7 +19,7 @@ article.talk {
 }
 
 article>h2>span {
-    background: red;
+    margin-left: 20px;
     text-align: right;
 }
 

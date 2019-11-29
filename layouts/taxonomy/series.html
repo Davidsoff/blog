@@ -1,0 +1,18 @@
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<section class="section">
+  <div class="container">
+    <h2 class="title"><b>{{ .Title }}</b></h2>
+    <div>
+    {{.Content}}
+    </div>
+    <br/>
+    <br/>
+    <h2 class="title"><b>Items in this series:</b></h2>
+    {{ range .Data.Pages.Reverse }}
+    {{partial "widgets/page-listitem.html" .}}
+    {{ end }}
+  </div>
+</section>
+{{ partial "pager" . }}
+{{ partial "footer" . }}

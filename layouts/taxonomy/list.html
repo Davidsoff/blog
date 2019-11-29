@@ -1,0 +1,25 @@
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<section class="section">
+  <div class="container">
+    <ul id="all-taxonomies">
+        {{$taxonomy_term := .Title}}
+        {{$taxonomy := .Pages}}
+            {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
+                <h1 class="title">Overview of all {{ .Title }}</h1>
+                {{ range .Pages}}
+                    <article>
+                        <h2 class="subtitle">{{ .Title }} ({{len .Pages}})</h2>
+                        <p>
+                            {{ .Summary }}
+                        </p>
+                        <a class="is-pulled-right is-6" href="{{ .Permalink }}">View Articles</a>
+                    </article>
+                {{ end }}
+            {{ end }}
+        
+    </ul>
+    </div>
+</section>
+{{ partial "pager" . }}
+{{ partial "footer" . }}

@@ -1,0 +1,44 @@
+{{- $scratch := newScratch -}}
+{{- if .Params.series -}}
+    {{- $series_name := .Params.series -}}
+    {{- $scratch.Add "cur_page_num" 1 -}}
+    {{- $scratch.Add "total_page_num" 0 -}}
+    {{- range where .Site.RegularPages.ByDate "Params.series" $series_name -}}
+    {{- $scratch.Add "total_page_num" 1 -}}
+        {{- if gt $.Date.Unix .Date.Unix -}}
+            {{- $scratch.Add "cur_page_num" 1 -}}
+            {{- $scratch.Set "prev_link" .Permalink -}}
+            {{- $scratch.Set "prev_title" .Title -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- range where .Site.RegularPages.ByDate.Reverse "Params.series" $series_name -}}
+        {{- $scratch.Set "first_link" .Permalink -}}
+        {{- if lt $.Date.Unix .Date.Unix -}}
+            {{- $scratch.Set "next_link" .Permalink -}}
+            {{- $scratch.Set "next_title" .Title -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if or ($scratch.Get "next_link") ($scratch.Get "prev_link") -}}
+        <hr/>
+        <script defer src="/js/all.min.js"></script>
+        <p>Part {{ $scratch.Get "cur_page_num" }} of {{ $scratch.Get "total_page_num" }}
+            in the <b>{{- $series_name -}}</b> series.</p>
+        <p>
+        {{- if $scratch.Get "prev_link" -}}
+            {{- if ne ($scratch.Get "prev_link") ($scratch.Get "first_link") -}}
+                <a href="{{- $scratch.Get "first_link" -}}"><i class="fa fa-angle-left"></i>Series Start<i class="fa fa-angle-right"></i></a>
+                     |
+            {{ end -}}
+            {{- if $scratch.Get "prev_link" -}}
+                <a href="{{- $scratch.Get "prev_link" -}}"><i class="fa fa-angle-double-left"></i>{{- $scratch.Get "prev_title" -}}</a>
+            {{- end -}}
+        {{- end -}}
+        {{- if and ($scratch.Get "next_link") ($scratch.Get "prev_link") }}
+                 |
+        {{ end -}}
+        {{- if $scratch.Get "next_link" -}}
+            <a href="{{- $scratch.Get "next_link" -}}">{{- $scratch.Get "next_title" -}}<i class="fa fa-angle-double-right"></i></a></p>
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

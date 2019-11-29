@@ -39,9 +39,16 @@ platforms = ["github","twitter","email","linkedin", "rss"]
 
 [taxonomies]
 tag ="tags"
+series = "series"
 
 [blackfriday]
 hrefTargetBlank = true
 
 [params.assets]
-customCSS = ["css/index.css", "css/presentation.css"]
+customCSS = ["css/index.css", "css/presentation.css", "css/solid.css"]
+
+[params.sections_left]
+"/series" = "Series"
+
+[params.sections_right]
+"/about" = "About me"
