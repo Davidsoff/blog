@@ -1,401 +1,434 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://www.davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href=&#34;https://github.com/DavidSoff&#34;&gt;David Soff&lt;/a&gt; 2019</copyright><lastBuildDate>Mon, 11 Nov 2019 12:55:23 +0100</lastBuildDate><atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Intro to DNS</title><link>https://www.davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>
-&lt;p&gt;layout: true&lt;/p&gt;
-&lt;p&gt;class: center, middle&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;intro-to-dns&#34;&gt;Intro to DNS&lt;/h1&gt;
-&lt;p&gt;By: David Soff (@SoffDavid)&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;dns&#34;&gt;DNS&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;d-omain-n-ame-s-ystem&#34;&gt;&lt;strong&gt;D&lt;/strong&gt;omain &lt;strong&gt;N&lt;/strong&gt;ame &lt;strong&gt;S&lt;/strong&gt;ystem&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;basically-the-phonebook-of-the-internet&#34;&gt;Basically the phonebook of the internet&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h1&gt;
-&lt;p&gt;&amp;ndash;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;h2 id=&#34;a-browser-or-device-called-the-dns-client-issues-a-dns-request-for-example-google-com&#34;&gt;A browser or device called the &lt;em&gt;DNS client&lt;/em&gt; issues a &lt;em&gt;DNS Request&lt;/em&gt;. For example: &lt;em&gt;google.com&lt;/em&gt;&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;the-request-is-received-by-the-dns-resolver-the-resolver-starts-to-look-for-a-dns-server-that-holds-the-ip-address-for-the-domain&#34;&gt;The request is received by the &lt;em&gt;DNS resolver&lt;/em&gt;. The resolver starts to look for a DNS server that holds the ip address for the domain&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;the-resolver-starts-at-the-internets-root-dns-server-to-find-the-t-op-l-evel-d-omain-server&#34;&gt;The resolver starts at the internets &lt;em&gt;Root DNS server&lt;/em&gt; to find the &lt;strong&gt;T&lt;/strong&gt;op &lt;strong&gt;L&lt;/strong&gt;evel &lt;strong&gt;D&lt;/strong&gt;omain* server.&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;the-resolver-then-goes-to-the-server-responsible-for-the-domain-if-there-are-subdomains-managed-by-a-different-server-the-resolver-wil-go-to-those-servers&#34;&gt;The resolver then goes to the server responsible for the &lt;em&gt;domain&lt;/em&gt;. If there are &lt;em&gt;subdomains&lt;/em&gt; managed by a different server, the resolver wil go to those servers.&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;once-the-resolver-gets-to-the-authoritative-dns-server-for-the-specific-domain-that-dns-server-will-return-de-requested-data-to-the-resolver-the-request-is-now-resolved&#34;&gt;Once the resolver gets to the &lt;em&gt;authoritative DNS server&lt;/em&gt; for the specific &lt;em&gt;domain&lt;/em&gt;, that DNS server will return de requested data to the resolver. The request is now resolved.&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The client can now connect to the correct server with the returned IP address.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;now-some-terms&#34;&gt;Now some terms:&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DNS client&lt;/strong&gt;: Any device making a DNS request&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DNS resolver&lt;/strong&gt;: The program or server the DNS client is sending the DNS request to.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Root DNS server&lt;/strong&gt;: These servers know where all the DNS servers for the Top Level Domains are.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Authoritative DNS server&lt;/strong&gt;: These servers are the one and only source where you can get the address information for a specific domain.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DNS request&lt;/strong&gt;: A request for the DNS information associated with a particular domain&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;other-interesting-things&#34;&gt;Other interesting things&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;DNS resolvers may cache the responses they get for a request.&lt;/li&gt;
-&lt;li&gt;A response contains a &lt;strong&gt;T&lt;/strong&gt;ime-&lt;strong&gt;T&lt;/strong&gt;o-&lt;strong&gt;L&lt;/strong&gt;ive field which is meant to be an indicator of how long the DNS record should be kept in the cache.&lt;/li&gt;
-&lt;li&gt;A resolver does not have to respect the TTL field of a DNS response. for example: Some mobile phone plans cache responses for at least 2 hours. Lower values for the TTL are not respected.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;thank-you&#34;&gt;Thank you&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;sources-and-more-information&#34;&gt;Sources and more information:&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ns1.com/resources/dns-protocol&#34; target=&#34;_blank&#34;&gt;https://ns1.com/resources/dns-protocol&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&#34; target=&#34;_blank&#34;&gt;https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/learning/dns/what-is-dns/&#34; target=&#34;_blank&#34;&gt;https://www.cloudflare.com/learning/dns/what-is-dns/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content></item><item><title>Release it!</title><link>https://www.davidsoff.nl/presentation/release-it/</link><pubDate>Fri, 01 Nov 2019 15:42:04 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/release-it/</guid><description>A talk about building software that can survive production.</description><content>
-&lt;p&gt;layout: true&lt;/p&gt;
-&lt;p&gt;class: center, middle&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;release-it&#34;&gt;Release it!&lt;/h1&gt;
-&lt;h2 id=&#34;production-ready-systems&#34;&gt;Production ready systems&lt;/h2&gt;
-&lt;p&gt;By: David Soff&lt;/p&gt;
-&lt;p&gt;@SoffDavid&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;software-is-only-useful-in-production&#34;&gt;Software is only useful in production.&lt;/h1&gt;
-&lt;p&gt;But most software is not necceseraly written with production in mind.&lt;/p&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;Software only delivers value in production.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;does-passing-qa-mean-being-ready-for-production&#34;&gt;Does passing QA mean being ready for production?&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img src=&#34;passed-qa.jpg&#34; alt=&#34;passed-qa.jpg&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img src=&#34;users.jpg&#34; alt=&#34;users&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.
-.origin[Rick Cook]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;failure-is-expensive&#34;&gt;Failure is expensive.&lt;/h1&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;A bug in a trading system can very quickly lose a company millions.&lt;/p&gt;
-&lt;p&gt;A wrong admin input can screw up the DNS and make a website unreachable.&lt;/p&gt;
-&lt;p&gt;A single broken request handler can bring down a server.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;failure-is-expensive-expected&#34;&gt;Failure is &lt;del&gt;expensive&lt;/del&gt; expected.&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;the-bug-that-brought-down-an-airline&#34;&gt;The bug that brought down an airline&lt;/h1&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;A bug in the Oracle database driver caused the check-in kiosks to stop working
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://www.davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href="https://github.com/DavidSoff">David Soff&lt;/a> 2019</copyright><lastBuildDate>Mon, 11 Nov 2019 12:55:23 +0100</lastBuildDate><atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Intro to DNS</title><link>https://www.davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>&lt;p>layout: true&lt;/p>
+&lt;p>class: center, middle&lt;/p>
+&lt;hr>
+&lt;h1 id="intro-to-dns">Intro to DNS&lt;/h1>
+&lt;p>By: David Soff (@SoffDavid)&lt;/p>
+&lt;hr>
+&lt;h1 id="dns">DNS&lt;/h1>
+&lt;hr>
+&lt;h1 id="domain-name-system">&lt;strong>D&lt;/strong>omain &lt;strong>N&lt;/strong>ame &lt;strong>S&lt;/strong>ystem&lt;/h1>
+&lt;hr>
+&lt;h1 id="basically-the-phonebook-of-the-internet">Basically the phonebook of the internet&lt;/h1>
+&lt;hr>
+&lt;h1 id="how-does-it-work">How does it work?&lt;/h1>
+&lt;p>&amp;ndash;&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>A browser or device called the &lt;em>DNS client&lt;/em> issues a &lt;em>DNS Request&lt;/em>. For example: &lt;em>google.com&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>The request is received by the &lt;em>DNS resolver&lt;/em>. The resolver starts to look for a DNS server that holds the ip address for the domain&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>The resolver starts at the internets &lt;em>Root DNS server&lt;/em> to find the &lt;strong>T&lt;/strong>op &lt;strong>L&lt;/strong>evel &lt;strong>D&lt;/strong>omain* server.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>The resolver then goes to the server responsible for the &lt;em>domain&lt;/em>. If there are &lt;em>subdomains&lt;/em> managed by a different server, the resolver wil go to those servers.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Once the resolver gets to the &lt;em>authoritative DNS server&lt;/em> for the specific &lt;em>domain&lt;/em>, that DNS server will return de requested data to the resolver. The request is now resolved.&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;p>The client can now connect to the correct server with the returned IP address.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h1 id="now-some-terms">Now some terms:&lt;/h1>
+&lt;ul>
+&lt;li>&lt;strong>DNS client&lt;/strong>: Any device making a DNS request&lt;/li>
+&lt;li>&lt;strong>DNS resolver&lt;/strong>: The program or server the DNS client is sending the DNS request to.&lt;/li>
+&lt;li>&lt;strong>Root DNS server&lt;/strong>: These servers know where all the DNS servers for the Top Level Domains are.&lt;/li>
+&lt;li>&lt;strong>Authoritative DNS server&lt;/strong>: These servers are the one and only source where you can get the address information for a specific domain.&lt;/li>
+&lt;li>&lt;strong>DNS request&lt;/strong>: A request for the DNS information associated with a particular domain&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="other-interesting-things">Other interesting things&lt;/h1>
+&lt;ul>
+&lt;li>DNS resolvers may cache the responses they get for a request.&lt;/li>
+&lt;li>A response contains a &lt;strong>T&lt;/strong>ime-&lt;strong>T&lt;/strong>o-&lt;strong>L&lt;/strong>ive field which is meant to be an indicator of how long the DNS record should be kept in the cache.&lt;/li>
+&lt;li>A resolver does not have to respect the TTL field of a DNS response. for example: Some mobile phone plans cache responses for at least 2 hours. Lower values for the TTL are not respected.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="thank-you">Thank you&lt;/h1>
+&lt;hr>
+&lt;h1 id="sources-and-more-information">Sources and more information:&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://ns1.com/resources/dns-protocol">https://ns1.com/resources/dns-protocol&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/">https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cloudflare.com/learning/dns/what-is-dns/">https://www.cloudflare.com/learning/dns/what-is-dns/&lt;/a>&lt;/li>
+&lt;/ul></content></item><item><title>Release it!</title><link>https://www.davidsoff.nl/presentation/release-it/</link><pubDate>Fri, 01 Nov 2019 15:42:04 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/release-it/</guid><description>A talk about building software that can survive production.</description><content>&lt;p>layout: true&lt;/p>
+&lt;p>class: center, middle&lt;/p>
+&lt;hr>
+&lt;h1 id="release-it">Release it!&lt;/h1>
+&lt;h2 id="production-ready-systems">Production ready systems&lt;/h2>
+&lt;p>By: David Soff&lt;/p>
+&lt;p>@SoffDavid&lt;/p>
+&lt;hr>
+&lt;h1 id="software-is-only-useful-in-production">Software is only useful in production.&lt;/h1>
+&lt;p>But most software is not necceseraly written with production in mind.&lt;/p>
+&lt;p>???&lt;/p>
+&lt;p>Software only delivers value in production.&lt;/p>
+&lt;hr>
+&lt;h1 id="does-passing-qa-mean-being-ready-for-production">Does passing QA mean being ready for production?&lt;/h1>
+&lt;hr>
+&lt;p>&lt;img src="passed-qa.jpg" alt="passed-qa.jpg">&lt;/p>
+&lt;hr>
+&lt;p>&lt;img src="users.jpg" alt="users">&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.
+.origin[Rick Cook]&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h1 id="failure-is-expensive">Failure is expensive.&lt;/h1>
+&lt;p>???&lt;/p>
+&lt;p>A bug in a trading system can very quickly lose a company millions.&lt;/p>
+&lt;p>A wrong admin input can screw up the DNS and make a website unreachable.&lt;/p>
+&lt;p>A single broken request handler can bring down a server.&lt;/p>
+&lt;hr>
+&lt;h2 id="failure-is-expensive-expected">Failure is &lt;del>expensive&lt;/del> expected.&lt;/h2>
+&lt;hr>
+&lt;h1 id="the-bug-that-brought-down-an-airline">The bug that brought down an airline&lt;/h1>
+&lt;p>???&lt;/p>
+&lt;p>A bug in the Oracle database driver caused the check-in kiosks to stop working
 This bug made it so that connections to the database where not correctly closed after a failover.
 This in turn caused the kiosk servers to run out of resources
-A reboot of the affected applications fixed the problems&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;so-how-to-prevent-the-next-outage&#34;&gt;So how to prevent the next outage?&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Bugs cannot be eliminated, so they must be survived instead.
-.origin[Michael T. Nygard]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;
-&lt;h2 id=&#34;prevent-bugs-from-causing-a-chain-of-failures&#34;&gt;Prevent bugs from causing a chain of failures.&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;layout: true
-class: left, middle&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;defining-stability&#34;&gt;Defining Stability&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Transaction&lt;/strong&gt;: Abstract unit of work processed by the system.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: Everything needed to process a transaction.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Impulse&lt;/strong&gt;: A rapid shock to the system.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Stress&lt;/strong&gt;: A force applied to the system over a longer period of time.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Strain&lt;/strong&gt;: A change in the &amp;ldquo;shape&amp;rdquo; of the system caused by stress.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;layout: true
-class: center, middle&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;both-impulses-and-stress-can-cause-excessive-strain&#34;&gt;Both &lt;em&gt;Impulses&lt;/em&gt; and &lt;em&gt;Stress&lt;/em&gt; can cause excessive &lt;em&gt;Strain&lt;/em&gt;&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;impulse&#34;&gt;Impulse&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;impulse.gif&#34; alt=&#34;impulse&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;stress&#34;&gt;Stress&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;stress.gif&#34; alt=&#34;stress&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;stability-antipatterns&#34;&gt;Stability antipatterns&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Integration points&lt;/li&gt;
-&lt;li&gt;Chain reactions&lt;/li&gt;
-&lt;li&gt;Cascading failures&lt;/li&gt;
-&lt;li&gt;Users&lt;/li&gt;
-&lt;li&gt;Blocked threads&lt;/li&gt;
-&lt;li&gt;Self-denial attacks&lt;/li&gt;
-&lt;li&gt;Scaling effects&lt;/li&gt;
-&lt;li&gt;Unbalanced capacities&lt;/li&gt;
-&lt;li&gt;Dogpile&lt;/li&gt;
-&lt;li&gt;Force multiplier&lt;/li&gt;
-&lt;li&gt;Slow responses&lt;/li&gt;
-&lt;li&gt;Unbounded result sets&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;stability-antipatterns-1&#34;&gt;Stability antipatterns&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Integration points&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Chain reactions&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cascading failures&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Users&lt;/li&gt;
-&lt;li&gt;Blocked threads&lt;/li&gt;
-&lt;li&gt;Self-denial attacks&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Scaling effects&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Unbalanced capacities&lt;/li&gt;
-&lt;li&gt;Dogpile&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Force multiplier&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Slow responses&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Unbounded result sets&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;I will be talking about these specific antipatterns.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;chain-reactions&#34;&gt;Chain reactions&lt;/h1&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;These happen in horizontally scaled apps. Once one of the nodes in the group crashes, the loadbalancer will distribute the load of that node to the other healthy nodes which as a result might also start failing. worst case this keeps happening untill all nodes are down and your service is unreachable.&lt;/p&gt;
-&lt;p&gt;IT may be the beginning of a cascading failure&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;cascading-failures&#34;&gt;Cascading failures&lt;/h1&gt;
-&lt;p&gt;???
-These happen when an outage in one service also causes failures in other upstream and downstream services. This may be because of poorly isolated calls to the broken service. These can usually be prevented by employing Circuit-Breakers and Timeouts&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;cascading-failures-1&#34;&gt;Cascading failures&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;graphs/cascade1.png&#34; alt=&#34;cascade1&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;cascading-failures-2&#34;&gt;Cascading failures&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;graphs/cascade2.png&#34; alt=&#34;cascade2&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;cascading-failures-3&#34;&gt;Cascading failures&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;graphs/cascade3.png&#34; alt=&#34;cascade3&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;scaling-effects&#34;&gt;Scaling effects&lt;/h1&gt;
-&lt;p&gt;???
-Dont assume that the load between environments is the same.&lt;/p&gt;
-&lt;p&gt;More something to keep in mind, ACC does not have the same size as PROD.&lt;/p&gt;
-&lt;p&gt;More clients can mean more trouble, a backend server might be able to handle ten frontend services calling it, but it may crash when it is a hundred calling.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;force-multiplier&#34;&gt;Force multiplier&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;rm -rf /&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;???
-Automation amplifying adverse effects because they can react very stupidly, very very quickly.&lt;/p&gt;
-&lt;p&gt;Fix this by defining &amp;ldquo;safe&amp;rdquo;, and &amp;ldquo;unsafe&amp;rdquo; actions. Also add a goveror functionality which ensures automation cannot break loose.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;slow-responses&#34;&gt;Slow responses&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;refresh.gif&#34; alt=&#34;refresh&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;???
+A reboot of the affected applications fixed the problems&lt;/p>
+&lt;hr>
+&lt;h1 id="so-how-to-prevent-the-next-outage">So how to prevent the next outage?&lt;/h1>
+&lt;blockquote>
+&lt;p>Bugs cannot be eliminated, so they must be survived instead.
+.origin[Michael T. Nygard]&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h1 id="goal">Goal&lt;/h1>
+&lt;h2 id="prevent-bugs-from-causing-a-chain-of-failures">Prevent bugs from causing a chain of failures.&lt;/h2>
+&lt;hr>
+&lt;p>layout: true
+class: left, middle&lt;/p>
+&lt;hr>
+&lt;h1 id="defining-stability">Defining Stability&lt;/h1>
+&lt;ul>
+&lt;li>&lt;strong>Transaction&lt;/strong>: Abstract unit of work processed by the system.&lt;/li>
+&lt;li>&lt;strong>System&lt;/strong>: Everything needed to process a transaction.&lt;/li>
+&lt;li>&lt;strong>Impulse&lt;/strong>: A rapid shock to the system.&lt;/li>
+&lt;li>&lt;strong>Stress&lt;/strong>: A force applied to the system over a longer period of time.&lt;/li>
+&lt;li>&lt;strong>Strain&lt;/strong>: A change in the &amp;ldquo;shape&amp;rdquo; of the system caused by stress.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>layout: true
+class: center, middle&lt;/p>
+&lt;hr>
+&lt;h1 id="both-impulses-and-stress-can-cause-excessive-strain">Both &lt;em>Impulses&lt;/em> and &lt;em>Stress&lt;/em> can cause excessive &lt;em>Strain&lt;/em>&lt;/h1>
+&lt;hr>
+&lt;h1 id="impulse">Impulse&lt;/h1>
+&lt;p>&lt;img src="impulse.gif" alt="impulse">&lt;/p>
+&lt;hr>
+&lt;h1 id="stress">Stress&lt;/h1>
+&lt;p>&lt;img src="stress.gif" alt="stress">&lt;/p>
+&lt;hr>
+&lt;h1 id="stability-antipatterns">Stability antipatterns&lt;/h1>
+&lt;ul>
+&lt;li>Integration points&lt;/li>
+&lt;li>Chain reactions&lt;/li>
+&lt;li>Cascading failures&lt;/li>
+&lt;li>Users&lt;/li>
+&lt;li>Blocked threads&lt;/li>
+&lt;li>Self-denial attacks&lt;/li>
+&lt;li>Scaling effects&lt;/li>
+&lt;li>Unbalanced capacities&lt;/li>
+&lt;li>Dogpile&lt;/li>
+&lt;li>Force multiplier&lt;/li>
+&lt;li>Slow responses&lt;/li>
+&lt;li>Unbounded result sets&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="stability-antipatterns-1">Stability antipatterns&lt;/h1>
+&lt;ul>
+&lt;li>Integration points&lt;/li>
+&lt;li>&lt;strong>Chain reactions&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cascading failures&lt;/strong>&lt;/li>
+&lt;li>Users&lt;/li>
+&lt;li>Blocked threads&lt;/li>
+&lt;li>Self-denial attacks&lt;/li>
+&lt;li>&lt;strong>Scaling effects&lt;/strong>&lt;/li>
+&lt;li>Unbalanced capacities&lt;/li>
+&lt;li>Dogpile&lt;/li>
+&lt;li>&lt;strong>Force multiplier&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Slow responses&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Unbounded result sets&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>???&lt;/p>
+&lt;p>I will be talking about these specific antipatterns.&lt;/p>
+&lt;hr>
+&lt;h1 id="chain-reactions">Chain reactions&lt;/h1>
+&lt;p>???&lt;/p>
+&lt;p>These happen in horizontally scaled apps. Once one of the nodes in the group crashes, the loadbalancer will distribute the load of that node to the other healthy nodes which as a result might also start failing. worst case this keeps happening untill all nodes are down and your service is unreachable.&lt;/p>
+&lt;p>IT may be the beginning of a cascading failure&lt;/p>
+&lt;hr>
+&lt;h1 id="cascading-failures">Cascading failures&lt;/h1>
+&lt;p>???
+These happen when an outage in one service also causes failures in other upstream and downstream services. This may be because of poorly isolated calls to the broken service. These can usually be prevented by employing Circuit-Breakers and Timeouts&lt;/p>
+&lt;hr>
+&lt;h1 id="cascading-failures-1">Cascading failures&lt;/h1>
+&lt;p>&lt;img src="graphs/cascade1.png" alt="cascade1">&lt;/p>
+&lt;hr>
+&lt;h1 id="cascading-failures-2">Cascading failures&lt;/h1>
+&lt;p>&lt;img src="graphs/cascade2.png" alt="cascade2">&lt;/p>
+&lt;hr>
+&lt;h1 id="cascading-failures-3">Cascading failures&lt;/h1>
+&lt;p>&lt;img src="graphs/cascade3.png" alt="cascade3">&lt;/p>
+&lt;hr>
+&lt;h1 id="scaling-effects">Scaling effects&lt;/h1>
+&lt;p>???
+Dont assume that the load between environments is the same.&lt;/p>
+&lt;p>More something to keep in mind, ACC does not have the same size as PROD.&lt;/p>
+&lt;p>More clients can mean more trouble, a backend server might be able to handle ten frontend services calling it, but it may crash when it is a hundred calling.&lt;/p>
+&lt;hr>
+&lt;h1 id="force-multiplier">Force multiplier&lt;/h1>
+&lt;p>&lt;code>rm -rf /&lt;/code>&lt;/p>
+&lt;p>???
+Automation amplifying adverse effects because they can react very stupidly, very very quickly.&lt;/p>
+&lt;p>Fix this by defining &amp;ldquo;safe&amp;rdquo;, and &amp;ldquo;unsafe&amp;rdquo; actions. Also add a goveror functionality which ensures automation cannot break loose.&lt;/p>
+&lt;hr>
+&lt;h1 id="slow-responses">Slow responses&lt;/h1>
+&lt;p>&lt;img src="refresh.gif" alt="refresh">&lt;/p>
+&lt;p>???
 Slow responses can trigger cascading failures. They can also cause more load caused by users hitting the reload button.
-Failing fast mitigated this problem by not having upstream systems wait for a response.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;unbounded-result-sets&#34;&gt;Unbounded result sets&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;overload.gif&#34; alt=&#34;overload&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;???
+Failing fast mitigated this problem by not having upstream systems wait for a response.&lt;/p>
+&lt;hr>
+&lt;h1 id="unbounded-result-sets">Unbounded result sets&lt;/h1>
+&lt;p>&lt;img src="overload.gif" alt="overload">&lt;/p>
+&lt;p>???
 Title kinda explains this one.
 If you call a service and it returns a huge list of data, you will have to be able to deal with that.
-Also if you are writing queries, always add a limit clause otherwise you leave yourself open to sudden data growth issues.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;stability-patterns&#34;&gt;Stability patterns&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Timeouts&lt;/li&gt;
-&lt;li&gt;Circuit breakers&lt;/li&gt;
-&lt;li&gt;Bulkheads&lt;/li&gt;
-&lt;li&gt;Steady state&lt;/li&gt;
-&lt;li&gt;Fail fast&lt;/li&gt;
-&lt;li&gt;Let it crash&lt;/li&gt;
-&lt;li&gt;Handshaking&lt;/li&gt;
-&lt;li&gt;Test harnesses&lt;/li&gt;
-&lt;li&gt;Decoupling middleware&lt;/li&gt;
-&lt;li&gt;Shed load&lt;/li&gt;
-&lt;li&gt;Create back pressure&lt;/li&gt;
-&lt;li&gt;Govenor&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;???
-Let&amp;rsquo;s get away from these dark patterns (wich pretty much every system has some of) and have a look at some stability patterns.
-Expect failure, use these patterns to reduce impact.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;stability-patterns-1&#34;&gt;Stability patterns&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Timeouts&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Circuit breakers&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bulkheads&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Steady state&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fail fast&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Let it crash&lt;/li&gt;
-&lt;li&gt;Handshaking&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Test harnesses&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Decoupling middleware&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Shed load&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Create back pressure&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Govenor&lt;/strong&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;timeouts&#34;&gt;Timeouts&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;waiting.gif&#34; alt=&#34;waiting&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;???
-Can be used for ensuring outgoing calls don&amp;rsquo;t keep the system hanging forever. Think very carefully about the length of a timeout. Does is make sense to wait 60 seconds for a reply from a backend service before rendering the webpage a user requested?&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;circuit-breakers&#34;&gt;Circuit breakers&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;circuit_breaker_state_diagram.png&#34; alt=&#34;circuit_breaker_state_diagram&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Best used in conjunction with timeouts.&lt;/li&gt;
-&lt;li&gt;They trigger on number of errors.&lt;/li&gt;
-&lt;li&gt;A tripped circuitbreaker is bad and should be alerted on.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;bulkheads&#34;&gt;Bulkheads&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;without-bulkhead.svg&#34; alt=&#34;without-bulkhead&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;bulkheads-1&#34;&gt;Bulkheads&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;with-bulkhead.svg&#34; alt=&#34;with-bulkhead&#34; /&gt;
-???&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Used to contain failures/ reduce the balst radius, just like the bulkheads in a ship are designed to ensure a single leak does not sink the ship.&lt;/li&gt;
-&lt;li&gt;Partition single points of failure so that an issue with one of the partitions, doesn&amp;rsquo;t bring down all dependent services.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;fail-fast&#34;&gt;Fail fast&lt;/h1&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fail as fast as possible by checking your dependencies before doing big computations.&lt;/li&gt;
-&lt;li&gt;Don&amp;rsquo;t wait for resources to become available. the upstream system should be handling failure responses.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;p&gt;A print shop needs the fonts to be attached to a job otherwise the printer will pront a full black page.
-The printer should therefore verify that the fonts are correctly attached before starting the full print run. Otherwise it should fail with a descriptive error message.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;test-harnesses&#34;&gt;Test harnesses&lt;/h1&gt;
-&lt;h4 id=&#34;aka-evil-twin-service&#34;&gt;(AKA evil-twin service)&lt;/h4&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;Basically a mock service which will try to simulate all different failure modes, this includes but is not limited to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;slow responses&lt;/li&gt;
-&lt;li&gt;slow connections&lt;/li&gt;
-&lt;li&gt;wrong return types&lt;/li&gt;
-&lt;li&gt;refuse all credentials&lt;/li&gt;
-&lt;li&gt;etc
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It will try to make the system under test hurt.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;decoupling-middleware&#34;&gt;Decoupling middleware&lt;/h1&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;Decouple services by using async communication.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;create-back-pressure&#34;&gt;Create back pressure&lt;/h1&gt;
-&lt;p&gt;???
-Mostly important for systems where work is pushed through the system.&lt;/p&gt;
-&lt;p&gt;Don&amp;rsquo;t push more work onto a worker than it can process and let the worker communicate this back to the producer.&lt;/p&gt;
-&lt;p&gt;Block new work until it can be processed again. producer should notice and stop trying to send new work untill there is capacity again.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;governor&#34;&gt;Governor&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;governor.gif&#34; alt=&#34;governor&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;???&lt;/p&gt;
-&lt;p&gt;Limit the speed at which &amp;ldquo;unsafe&amp;rdquo; actions can be performed e.g. shutting down servers or deleting data.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;lessons&#34;&gt;Lessons&lt;/h1&gt;
-&lt;p&gt;&amp;ndash;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Production is hard.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;ndash;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Your software should be cynical.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#34;thank-you&#34;&gt;Thank you&lt;/h1&gt;</content></item><item><title>Consumer Driven Contracts</title><link>https://www.davidsoff.nl/blog/consumer-driven-contracts/</link><pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/blog/consumer-driven-contracts/</guid><description>&lt;p&gt;This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p&gt;</description><content>&lt;p&gt;This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p&gt;
-&lt;h2 id=&#34;generic-sources&#34;&gt;Generic sources&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam&#34; target=&#34;_blank&#34;&gt;Integrated Tests Are A Scam&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://martinfowler.com/articles/microservice-testing/#testing-contract-introduction&#34; target=&#34;_blank&#34;&gt;microservice testing slides 18-19&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://martinfowler.com/articles/consumerDrivenContracts.html&#34; target=&#34;_blank&#34;&gt;Consumer-Driven Contracts: A Service Evolution Pattern&lt;/a&gt; tough read, but the end really helped me clear up some things.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://thoughtworks.github.io/pacto/patterns/cdc/&#34; target=&#34;_blank&#34;&gt;Pact explanation of Consumer Driven Contracts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing&#34; target=&#34;_blank&#34;&gt;Thoughtworks technology radar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://reflectoring.io/7-reasons-for-consumer-driven-contracts/&#34; target=&#34;_blank&#34;&gt;7 Reasons to Choose Consumer-Driven Contract Tests Over End-to-End Tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rea.tech/enter-the-pact-matrix-or-how-to-decouple-the-release-cycles-of-your-microservices/&#34; target=&#34;_blank&#34;&gt;Intro to the pact matrix&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;pact&#34;&gt;Pact&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.risingstack.com/consumer-driven-contract-testing-with-pact/&#34; target=&#34;_blank&#34;&gt;Consumer Driven Contract Testing with Pact&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.risingstack.com/advanced-contract-testing-pact-verification-with-pattern-matching/&#34; target=&#34;_blank&#34;&gt;Advanced Contract Testing - Pact Verification with Pattern Matching&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact_broker&#34; target=&#34;_blank&#34;&gt;Pact Broker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-ruby-standalone/releases&#34; target=&#34;_blank&#34;&gt;Pact standalone (especially the can-i-deploy section)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-net&#34; target=&#34;_blank&#34;&gt;Pact implementation for DotNet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/pact-foundation/pact-js/tree/master/examples/e2e&#34; target=&#34;_blank&#34;&gt;Pact JS Demo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content></item><item><title>Docker 101</title><link>https://www.davidsoff.nl/presentation/docker-101/</link><pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/docker-101/</guid><description>An introductory look at Docker</description><content>
-&lt;p&gt;layout: true&lt;/p&gt;
-&lt;p&gt;class: center, middle&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;docker-101&#34;&gt;Docker 101&lt;/h2&gt;
-&lt;p&gt;By David Soff&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;before-i-start&#34;&gt;Before I start:&lt;/h2&gt;
-&lt;p&gt;please clone &lt;a href=&#34;https://github.com/Davidsoff/docker101&#34; target=&#34;_blank&#34;&gt;https://github.com/Davidsoff/docker101&lt;/a&gt; for the hands-on part&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;what-is-docker&#34;&gt;What is Docker?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Lightweight containers&lt;/li&gt;
-&lt;li&gt;Only share the kernel of the host&lt;/li&gt;
-&lt;li&gt;Smaller and quicker to start than VMs&lt;/li&gt;
-&lt;li&gt;typically only runs a single proccess&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;docker-vs-vm&#34;&gt;Docker vs VM&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;docker-vm-container.png&#34; alt=&#34;vs vm&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;architecture.svg&#34; alt=&#34;architecture&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;how-to-use-docker&#34;&gt;How to use Docker?&lt;/h2&gt;
-&lt;p&gt;Download it from &lt;a href=&#34;https://www.docker.com/community-edition&#34; target=&#34;_blank&#34;&gt;docker.com&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;building-images-pt-1&#34;&gt;building images pt. 1&lt;/h2&gt;
-&lt;p&gt;create a build description in a Dockerfile&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;building-images-pt-2&#34;&gt;building images pt. 2&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t my-image .
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;running-images&#34;&gt;running images&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --name my-container -p 8080:80 my-image
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;viewing-containers&#34;&gt;viewing containers&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker ps
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;stopping-images&#34;&gt;stopping images&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker kill my-container
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;hands-on-time&#34;&gt;Hands-on time!&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;static-application&#34;&gt;Static application&lt;/h2&gt;
-&lt;p&gt;simple serving of html files&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;dynamic-application&#34;&gt;Dynamic application&lt;/h2&gt;
-&lt;p&gt;simple customised Hello World spring boot application&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;multi-container-setups&#34;&gt;Multi container setups&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Applications need storage&lt;/li&gt;
-&lt;li&gt;One process per container&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;docker-compose&#34;&gt;Docker Compose&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;lightweight container orchestration&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;multistage-builds&#34;&gt;Multistage builds&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;New feature in Docker 17.05&lt;/li&gt;
-&lt;li&gt;Separates build environment and runtime environment&lt;/li&gt;
-&lt;li&gt;Optimised containers for each role&lt;/li&gt;
-&lt;li&gt;Allows for very small containers&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;questions&#34;&gt;Questions?&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;thank-you&#34;&gt;Thank you!&lt;/h2&gt;</content></item></channel></rss>
+Also if you are writing queries, always add a limit clause otherwise you leave yourself open to sudden data growth issues.&lt;/p>
+&lt;hr>
+&lt;h1 id="stability-patterns">Stability patterns&lt;/h1>
+&lt;ul>
+&lt;li>Timeouts&lt;/li>
+&lt;li>Circuit breakers&lt;/li>
+&lt;li>Bulkheads&lt;/li>
+&lt;li>Steady state&lt;/li>
+&lt;li>Fail fast&lt;/li>
+&lt;li>Let it crash&lt;/li>
+&lt;li>Handshaking&lt;/li>
+&lt;li>Test harnesses&lt;/li>
+&lt;li>Decoupling middleware&lt;/li>
+&lt;li>Shed load&lt;/li>
+&lt;li>Create back pressure&lt;/li>
+&lt;li>Govenor&lt;/li>
+&lt;/ul>
+&lt;p>???
+Let's get away from these dark patterns (wich pretty much every system has some of) and have a look at some stability patterns.
+Expect failure, use these patterns to reduce impact.&lt;/p>
+&lt;hr>
+&lt;h1 id="stability-patterns-1">Stability patterns&lt;/h1>
+&lt;ul>
+&lt;li>&lt;strong>Timeouts&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Circuit breakers&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Bulkheads&lt;/strong>&lt;/li>
+&lt;li>Steady state&lt;/li>
+&lt;li>&lt;strong>Fail fast&lt;/strong>&lt;/li>
+&lt;li>Let it crash&lt;/li>
+&lt;li>Handshaking&lt;/li>
+&lt;li>&lt;strong>Test harnesses&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Decoupling middleware&lt;/strong>&lt;/li>
+&lt;li>Shed load&lt;/li>
+&lt;li>&lt;strong>Create back pressure&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Govenor&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="timeouts">Timeouts&lt;/h1>
+&lt;p>&lt;img src="waiting.gif" alt="waiting">&lt;/p>
+&lt;p>???
+Can be used for ensuring outgoing calls don't keep the system hanging forever. Think very carefully about the length of a timeout. Does is make sense to wait 60 seconds for a reply from a backend service before rendering the webpage a user requested?&lt;/p>
+&lt;hr>
+&lt;h1 id="circuit-breakers">Circuit breakers&lt;/h1>
+&lt;p>&lt;img src="circuit_breaker_state_diagram.png" alt="circuit_breaker_state_diagram">&lt;/p>
+&lt;p>???&lt;/p>
+&lt;ul>
+&lt;li>Best used in conjunction with timeouts.&lt;/li>
+&lt;li>They trigger on number of errors.&lt;/li>
+&lt;li>A tripped circuitbreaker is bad and should be alerted on.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="bulkheads">Bulkheads&lt;/h1>
+&lt;p>&lt;img src="without-bulkhead.svg" alt="without-bulkhead">&lt;/p>
+&lt;hr>
+&lt;h1 id="bulkheads-1">Bulkheads&lt;/h1>
+&lt;p>&lt;img src="with-bulkhead.svg" alt="with-bulkhead">
+???&lt;/p>
+&lt;ul>
+&lt;li>Used to contain failures/ reduce the balst radius, just like the bulkheads in a ship are designed to ensure a single leak does not sink the ship.&lt;/li>
+&lt;li>Partition single points of failure so that an issue with one of the partitions, doesn't bring down all dependent services.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="fail-fast">Fail fast&lt;/h1>
+&lt;p>???&lt;/p>
+&lt;ul>
+&lt;li>Fail as fast as possible by checking your dependencies before doing big computations.&lt;/li>
+&lt;li>Don't wait for resources to become available. the upstream system should be handling failure responses.&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;p>A print shop needs the fonts to be attached to a job otherwise the printer will pront a full black page.
+The printer should therefore verify that the fonts are correctly attached before starting the full print run. Otherwise it should fail with a descriptive error message.&lt;/p>
+&lt;hr>
+&lt;h1 id="test-harnesses">Test harnesses&lt;/h1>
+&lt;h4 id="aka-evil-twin-service">(AKA evil-twin service)&lt;/h4>
+&lt;p>???&lt;/p>
+&lt;p>Basically a mock service which will try to simulate all different failure modes, this includes but is not limited to:&lt;/p>
+&lt;ul>
+&lt;li>slow responses&lt;/li>
+&lt;li>slow connections&lt;/li>
+&lt;li>wrong return types&lt;/li>
+&lt;li>refuse all credentials&lt;/li>
+&lt;li>etc&lt;/li>
+&lt;/ul>
+&lt;p>It will try to make the system under test hurt.&lt;/p>
+&lt;hr>
+&lt;h1 id="decoupling-middleware">Decoupling middleware&lt;/h1>
+&lt;p>???&lt;/p>
+&lt;p>Decouple services by using async communication.&lt;/p>
+&lt;hr>
+&lt;h1 id="create-back-pressure">Create back pressure&lt;/h1>
+&lt;p>???
+Mostly important for systems where work is pushed through the system.&lt;/p>
+&lt;p>Don't push more work onto a worker than it can process and let the worker communicate this back to the producer.&lt;/p>
+&lt;p>Block new work until it can be processed again. producer should notice and stop trying to send new work untill there is capacity again.&lt;/p>
+&lt;hr>
+&lt;h1 id="governor">Governor&lt;/h1>
+&lt;p>&lt;img src="governor.gif" alt="governor">&lt;/p>
+&lt;p>???&lt;/p>
+&lt;p>Limit the speed at which &amp;ldquo;unsafe&amp;rdquo; actions can be performed e.g. shutting down servers or deleting data.&lt;/p>
+&lt;hr>
+&lt;h1 id="lessons">Lessons&lt;/h1>
+&lt;p>&amp;ndash;&lt;/p>
+&lt;ul>
+&lt;li>Production is hard.&lt;/li>
+&lt;/ul>
+&lt;p>&amp;ndash;&lt;/p>
+&lt;ul>
+&lt;li>Your software should be cynical.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="thank-you">Thank you&lt;/h1></content></item><item><title>Consumer Driven Contracts</title><link>https://www.davidsoff.nl/blog/consumer-driven-contracts/</link><pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/blog/consumer-driven-contracts/</guid><description>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p></description><content>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p>
+&lt;h2 id="generic-sources">Generic sources&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam">Integrated Tests Are A Scam&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://martinfowler.com/articles/microservice-testing/#testing-contract-introduction">microservice testing slides 18-19&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://martinfowler.com/articles/consumerDrivenContracts.html">Consumer-Driven Contracts: A Service Evolution Pattern&lt;/a> tough read, but the end really helped me clear up some things.&lt;/li>
+&lt;li>&lt;a href="https://thoughtworks.github.io/pacto/patterns/cdc/">Pact explanation of Consumer Driven Contracts&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.thoughtworks.com/radar/techniques/consumer-driven-contract-testing">Thoughtworks technology radar&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://reflectoring.io/7-reasons-for-consumer-driven-contracts/">7 Reasons to Choose Consumer-Driven Contract Tests Over End-to-End Tests&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rea.tech/enter-the-pact-matrix-or-how-to-decouple-the-release-cycles-of-your-microservices/">Intro to the pact matrix&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="pact">Pact&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.risingstack.com/consumer-driven-contract-testing-with-pact/">Consumer Driven Contract Testing with Pact&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.risingstack.com/advanced-contract-testing-pact-verification-with-pattern-matching/">Advanced Contract Testing - Pact Verification with Pattern Matching&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pact-foundation/pact_broker">Pact Broker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pact-foundation/pact-ruby-standalone/releases">Pact standalone (especially the can-i-deploy section)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pact-foundation/pact-net">Pact implementation for DotNet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pact-foundation/pact-js/tree/master/examples/e2e">Pact JS Demo&lt;/a>&lt;/li>
+&lt;/ul></content></item><item><title>Docker 101</title><link>https://www.davidsoff.nl/presentation/docker-101/</link><pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/docker-101/</guid><description>An introductory look at Docker</description><content>&lt;p>layout: true&lt;/p>
+&lt;p>class: center, middle&lt;/p>
+&lt;hr>
+&lt;h2 id="docker-101">Docker 101&lt;/h2>
+&lt;p>By David Soff&lt;/p>
+&lt;hr>
+&lt;h2 id="before-i-start">Before I start:&lt;/h2>
+&lt;p>please clone &lt;a href="https://github.com/Davidsoff/docker101">https://github.com/Davidsoff/docker101&lt;/a> for the hands-on part&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-docker">What is Docker?&lt;/h2>
+&lt;ul>
+&lt;li>Lightweight containers&lt;/li>
+&lt;li>Only share the kernel of the host&lt;/li>
+&lt;li>Smaller and quicker to start than VMs&lt;/li>
+&lt;li>typically only runs a single proccess&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="docker-vs-vm">Docker vs VM&lt;/h2>
+&lt;p>&lt;img src="docker-vm-container.png" alt="vs vm">&lt;/p>
+&lt;hr>
+&lt;h2 id="architecture">Architecture&lt;/h2>
+&lt;p>&lt;img src="architecture.svg" alt="architecture">&lt;/p>
+&lt;hr>
+&lt;h2 id="how-to-use-docker">How to use Docker?&lt;/h2>
+&lt;p>Download it from &lt;a href="https://www.docker.com/community-edition">docker.com&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="building-images-pt-1">building images pt. 1&lt;/h2>
+&lt;p>create a build description in a Dockerfile&lt;/p>
+&lt;hr>
+&lt;h2 id="building-images-pt-2">building images pt. 2&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker build -t my-image .
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="running-images">running images&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker run --name my-container -p 8080:80 my-image
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="viewing-containers">viewing containers&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker ps
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="stopping-images">stopping images&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker kill my-container
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="hands-on-time">Hands-on time!&lt;/h2>
+&lt;hr>
+&lt;h2 id="static-application">Static application&lt;/h2>
+&lt;p>simple serving of html files&lt;/p>
+&lt;hr>
+&lt;h2 id="dynamic-application">Dynamic application&lt;/h2>
+&lt;p>simple customised Hello World spring boot application&lt;/p>
+&lt;hr>
+&lt;h2 id="multi-container-setups">Multi container setups&lt;/h2>
+&lt;ul>
+&lt;li>Applications need storage&lt;/li>
+&lt;li>One process per container&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="docker-compose">Docker Compose&lt;/h2>
+&lt;ul>
+&lt;li>lightweight container orchestration&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="multistage-builds">Multistage builds&lt;/h2>
+&lt;ul>
+&lt;li>New feature in Docker 17.05&lt;/li>
+&lt;li>Separates build environment and runtime environment&lt;/li>
+&lt;li>Optimised containers for each role&lt;/li>
+&lt;li>Allows for very small containers&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="questions">Questions?&lt;/h2>
+&lt;hr>
+&lt;h2 id="thank-you">Thank you!&lt;/h2></content></item></channel></rss>
