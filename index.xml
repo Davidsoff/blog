@@ -1,4 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://www.davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href="https://github.com/DavidSoff">David Soff&lt;/a> 2019</copyright><lastBuildDate>Mon, 11 Nov 2019 12:55:23 +0100</lastBuildDate><atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Intro to DNS</title><link>https://www.davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>&lt;p>layout: true&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://www.davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href="https://github.com/DavidSoff">David Soff&lt;/a> 2019</copyright><lastBuildDate>Thu, 16 Jan 2020 14:46:37 +0100</lastBuildDate><atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning Best Practises</title><link>https://www.davidsoff.nl/blog/machine-learning-best-practises/</link><pubDate>Thu, 16 Jan 2020 14:46:37 +0100</pubDate><guid>https://www.davidsoff.nl/blog/machine-learning-best-practises/</guid><description>&lt;p>Assuming you have your cool new machine learned model, you will probably be wanting to show it off to your friends.
+This post will lay out a couple of best practises around hosting and running your machine learned models&lt;/p></description><content>&lt;p>Assuming you have your cool new machine learned model, you will probably be wanting to show it off to your friends.
+This post will lay out a couple of best practises around hosting and running your machine learned models&lt;/p>
+&lt;h2 id="deploying">Deploying&lt;/h2>
+&lt;p>To deploy your model you will have to export it, there are multiple file types available for this so pick the one your programming language supports.&lt;/p>
+&lt;p>For python some common file formats are:&lt;/p>
+&lt;ul>
+&lt;li>Pickle&lt;/li>
+&lt;li>joblib&lt;/li>
+&lt;/ul>
+&lt;p>It is also possible to export models trained using tensorflow to a tensorflow specific file format.
+Tensorflow is also supported by R&lt;/p>
+&lt;h3 id="serving">Serving&lt;/h3>
+&lt;p>There are many solutions for serving a model. Most solutions do follow the principle of exposing an api and converting the request data to the format expected by the model. Some frameworks have more built in features so less code is needed to get an application which can serve predictions.&lt;/p>
+&lt;h2 id="retraining">Retraining&lt;/h2>
+&lt;p>Your first model was trained using a training set. This training set is a snapshot of the world (or the piece you are evaluating atleast) at a specific moment in time. Since change is inevitable, your trainingdata will become outdated and will need to be refreshed. This also means your model is out of date. This phenomenon is called &lt;em>model drift&lt;/em>.&lt;/p>
+&lt;p>There are multiple ways of detecting model drift and there is no one-size-fits all, a few ways of checking for model drift are:&lt;/p>
+&lt;ul>
+&lt;li>Examining the feature distributions of training and live data&lt;/li>
+&lt;li>Examining the correlations between features&lt;/li>
+&lt;li>Examining the target distributions&lt;/li>
+&lt;/ul>
+&lt;p>A more thorough explanation on what this means can be found &lt;a href="https://mlinproduction.com/model-retraining/">here&lt;/a>&lt;/p>
+&lt;h2 id="monitoring">Monitoring&lt;/h2>
+&lt;p>Once your model is in production you will want to keet rack of the folowing metrics next to your normal monitoring of CPU, memory, latency, throughput, etc&lt;/p>
+&lt;h3 id="age-of-the-model">Age of the model&lt;/h3>
+&lt;p>The model will become less accurate if you do not retrain it regularly using fresh data&lt;/p>
+&lt;h3 id="accuracy-of-the-model">Accuracy of the model&lt;/h3>
+&lt;p>Keep tabs on the accuracy of the model so that you can detect sudden changes. Big changes may be an indication of a problem.
+Also remember to validate your accuracy using human feedback.&lt;/p>
+&lt;h3 id="output-distribution">Output distribution&lt;/h3>
+&lt;p>Keep tabs on the distribution of your predictions. Sudden changes in the distribution can be an indication of bugs or problems.
+Although this can also be caused by changes in the input conditions, it is certainly worth investigating the cause of the sudden change.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;p>&lt;a href="https://blog.dominodatalab.com/on-being-model-driven-metrics-and-monitoring/">https://blog.dominodatalab.com/on-being-model-driven-metrics-and-monitoring/&lt;/a>
+&lt;a href="https://mlinproduction.com/model-retraining/">https://mlinproduction.com/model-retraining/&lt;/a>&lt;/p></content></item><item><title>Intro to DNS</title><link>https://www.davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>&lt;p>layout: true&lt;/p>
 &lt;p>class: center, middle&lt;/p>
 &lt;hr>
 &lt;h1 id="intro-to-dns">Intro to DNS&lt;/h1>
