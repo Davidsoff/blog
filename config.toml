@@ -1,4 +1,4 @@
-baseURL = "https://www.davidsoff.nl/"
+baseURL = "https://davidsoff.nl/"
 languageCode = "en-us"
 title = "MagPie DevOps"
 theme = "kiss"
