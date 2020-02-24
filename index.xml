@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://www.davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href="https://github.com/DavidSoff">David Soff&lt;/a> 2019</copyright><lastBuildDate>Thu, 16 Jan 2020 14:46:37 +0100</lastBuildDate><atom:link href="https://www.davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning Best Practises</title><link>https://www.davidsoff.nl/blog/machine-learning-best-practises/</link><pubDate>Thu, 16 Jan 2020 14:46:37 +0100</pubDate><guid>https://www.davidsoff.nl/blog/machine-learning-best-practises/</guid><description>&lt;p>Assuming you have your cool new machine learned model, you will probably be wanting to show it off to your friends.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagPie DevOps</title><link>https://davidsoff.nl/</link><description>Recent content on MagPie DevOps</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>All Rights Reserved &lt;a href="https://github.com/DavidSoff">David Soff&lt;/a> 2019</copyright><lastBuildDate>Thu, 16 Jan 2020 14:46:37 +0100</lastBuildDate><atom:link href="https://davidsoff.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning Best Practises</title><link>https://davidsoff.nl/blog/machine-learning-best-practises/</link><pubDate>Thu, 16 Jan 2020 14:46:37 +0100</pubDate><guid>https://davidsoff.nl/blog/machine-learning-best-practises/</guid><description>&lt;p>Assuming you have your cool new machine learned model, you will probably be wanting to show it off to your friends.
 This post will lay out a couple of best practises around hosting and running your machine learned models&lt;/p></description><content>&lt;p>Assuming you have your cool new machine learned model, you will probably be wanting to show it off to your friends.
 This post will lay out a couple of best practises around hosting and running your machine learned models&lt;/p>
 &lt;h2 id="deploying">Deploying&lt;/h2>
@@ -33,7 +33,7 @@ Also remember to validate your accuracy using human feedback.&lt;/p>
 Although this can also be caused by changes in the input conditions, it is certainly worth investigating the cause of the sudden change.&lt;/p>
 &lt;h2 id="sources">Sources&lt;/h2>
 &lt;p>&lt;a href="https://blog.dominodatalab.com/on-being-model-driven-metrics-and-monitoring/">https://blog.dominodatalab.com/on-being-model-driven-metrics-and-monitoring/&lt;/a>
-&lt;a href="https://mlinproduction.com/model-retraining/">https://mlinproduction.com/model-retraining/&lt;/a>&lt;/p></content></item><item><title>Intro to DNS</title><link>https://www.davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>&lt;p>layout: true&lt;/p>
+&lt;a href="https://mlinproduction.com/model-retraining/">https://mlinproduction.com/model-retraining/&lt;/a>&lt;/p></content></item><item><title>Intro to DNS</title><link>https://davidsoff.nl/presentation/dns/</link><pubDate>Mon, 11 Nov 2019 12:55:23 +0100</pubDate><guid>https://davidsoff.nl/presentation/dns/</guid><description>A short introduction into the innerworkings of DNS</description><content>&lt;p>layout: true&lt;/p>
 &lt;p>class: center, middle&lt;/p>
 &lt;hr>
 &lt;h1 id="intro-to-dns">Intro to DNS&lt;/h1>
@@ -121,7 +121,7 @@ Although this can also be caused by changes in the input conditions, it is certa
 &lt;li>&lt;a href="https://ns1.com/resources/dns-protocol">https://ns1.com/resources/dns-protocol&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/">https://umbrella.cisco.com/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.cloudflare.com/learning/dns/what-is-dns/">https://www.cloudflare.com/learning/dns/what-is-dns/&lt;/a>&lt;/li>
-&lt;/ul></content></item><item><title>Release it!</title><link>https://www.davidsoff.nl/presentation/release-it/</link><pubDate>Fri, 01 Nov 2019 15:42:04 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/release-it/</guid><description>A talk about building software that can survive production.</description><content>&lt;p>layout: true&lt;/p>
+&lt;/ul></content></item><item><title>Release it!</title><link>https://davidsoff.nl/presentation/release-it/</link><pubDate>Fri, 01 Nov 2019 15:42:04 +0100</pubDate><guid>https://davidsoff.nl/presentation/release-it/</guid><description>A talk about building software that can survive production.</description><content>&lt;p>layout: true&lt;/p>
 &lt;p>class: center, middle&lt;/p>
 &lt;hr>
 &lt;h1 id="release-it">Release it!&lt;/h1>
@@ -285,7 +285,7 @@ Also if you are writing queries, always add a limit clause otherwise you leave y
 &lt;li>Govenor&lt;/li>
 &lt;/ul>
 &lt;p>???
-Let's get away from these dark patterns (wich pretty much every system has some of) and have a look at some stability patterns.
+Let&amp;rsquo;s get away from these dark patterns (wich pretty much every system has some of) and have a look at some stability patterns.
 Expect failure, use these patterns to reduce impact.&lt;/p>
 &lt;hr>
 &lt;h1 id="stability-patterns-1">Stability patterns&lt;/h1>
@@ -307,7 +307,7 @@ Expect failure, use these patterns to reduce impact.&lt;/p>
 &lt;h1 id="timeouts">Timeouts&lt;/h1>
 &lt;p>&lt;img src="waiting.gif" alt="waiting">&lt;/p>
 &lt;p>???
-Can be used for ensuring outgoing calls don't keep the system hanging forever. Think very carefully about the length of a timeout. Does is make sense to wait 60 seconds for a reply from a backend service before rendering the webpage a user requested?&lt;/p>
+Can be used for ensuring outgoing calls don&amp;rsquo;t keep the system hanging forever. Think very carefully about the length of a timeout. Does is make sense to wait 60 seconds for a reply from a backend service before rendering the webpage a user requested?&lt;/p>
 &lt;hr>
 &lt;h1 id="circuit-breakers">Circuit breakers&lt;/h1>
 &lt;p>&lt;img src="circuit_breaker_state_diagram.png" alt="circuit_breaker_state_diagram">&lt;/p>
@@ -326,14 +326,14 @@ Can be used for ensuring outgoing calls don't keep the system hanging forever. T
 ???&lt;/p>
 &lt;ul>
 &lt;li>Used to contain failures/ reduce the balst radius, just like the bulkheads in a ship are designed to ensure a single leak does not sink the ship.&lt;/li>
-&lt;li>Partition single points of failure so that an issue with one of the partitions, doesn't bring down all dependent services.&lt;/li>
+&lt;li>Partition single points of failure so that an issue with one of the partitions, doesn&amp;rsquo;t bring down all dependent services.&lt;/li>
 &lt;/ul>
 &lt;hr>
 &lt;h1 id="fail-fast">Fail fast&lt;/h1>
 &lt;p>???&lt;/p>
 &lt;ul>
 &lt;li>Fail as fast as possible by checking your dependencies before doing big computations.&lt;/li>
-&lt;li>Don't wait for resources to become available. the upstream system should be handling failure responses.&lt;/li>
+&lt;li>Don&amp;rsquo;t wait for resources to become available. the upstream system should be handling failure responses.&lt;/li>
 &lt;/ul>
 &lt;p>Example:&lt;/p>
 &lt;p>A print shop needs the fonts to be attached to a job otherwise the printer will pront a full black page.
@@ -359,7 +359,7 @@ The printer should therefore verify that the fonts are correctly attached before
 &lt;h1 id="create-back-pressure">Create back pressure&lt;/h1>
 &lt;p>???
 Mostly important for systems where work is pushed through the system.&lt;/p>
-&lt;p>Don't push more work onto a worker than it can process and let the worker communicate this back to the producer.&lt;/p>
+&lt;p>Don&amp;rsquo;t push more work onto a worker than it can process and let the worker communicate this back to the producer.&lt;/p>
 &lt;p>Block new work until it can be processed again. producer should notice and stop trying to send new work untill there is capacity again.&lt;/p>
 &lt;hr>
 &lt;h1 id="governor">Governor&lt;/h1>
@@ -377,7 +377,7 @@ Mostly important for systems where work is pushed through the system.&lt;/p>
 &lt;li>Your software should be cynical.&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;h1 id="thank-you">Thank you&lt;/h1></content></item><item><title>Consumer Driven Contracts</title><link>https://www.davidsoff.nl/blog/consumer-driven-contracts/</link><pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/blog/consumer-driven-contracts/</guid><description>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p></description><content>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p>
+&lt;h1 id="thank-you">Thank you&lt;/h1></content></item><item><title>Consumer Driven Contracts</title><link>https://davidsoff.nl/blog/consumer-driven-contracts/</link><pubDate>Thu, 15 Mar 2018 16:12:32 +0100</pubDate><guid>https://davidsoff.nl/blog/consumer-driven-contracts/</guid><description>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p></description><content>&lt;p>This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.&lt;/p>
 &lt;h2 id="generic-sources">Generic sources&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam">Integrated Tests Are A Scam&lt;/a>&lt;/li>
@@ -396,7 +396,7 @@ Mostly important for systems where work is pushed through the system.&lt;/p>
 &lt;li>&lt;a href="https://github.com/pact-foundation/pact-ruby-standalone/releases">Pact standalone (especially the can-i-deploy section)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/pact-foundation/pact-net">Pact implementation for DotNet&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/pact-foundation/pact-js/tree/master/examples/e2e">Pact JS Demo&lt;/a>&lt;/li>
-&lt;/ul></content></item><item><title>Docker 101</title><link>https://www.davidsoff.nl/presentation/docker-101/</link><pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate><guid>https://www.davidsoff.nl/presentation/docker-101/</guid><description>An introductory look at Docker</description><content>&lt;p>layout: true&lt;/p>
+&lt;/ul></content></item><item><title>Docker 101</title><link>https://davidsoff.nl/presentation/docker-101/</link><pubDate>Wed, 30 Aug 2017 16:12:32 +0100</pubDate><guid>https://davidsoff.nl/presentation/docker-101/</guid><description>An introductory look at Docker</description><content>&lt;p>layout: true&lt;/p>
 &lt;p>class: center, middle&lt;/p>
 &lt;hr>
 &lt;h2 id="docker-101">Docker 101&lt;/h2>
