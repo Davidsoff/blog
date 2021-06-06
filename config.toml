@@ -2,7 +2,7 @@ baseURL = "https://davidsoff.nl/"
 languageCode = "en-us"
 title = "MagPie DevOps"
 theme = "kiss"
-copyright = "All Rights Reserved <a href=\"https://github.com/DavidSoff\">David Soff</a> 2019"
+copyright = "All Rights Reserved <a href=\"https://github.com/DavidSoff\">David Soff</a> 2021 "
 disqusShortname = "davidsoff-nl"
 googleAnalytics = "UA-151064893-1"
 Paginate = 5 # Number of posts per page
