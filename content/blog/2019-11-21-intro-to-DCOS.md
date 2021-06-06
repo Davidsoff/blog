@@ -18,4 +18,4 @@ If you want to run a one of job or a scheduled task, like an integration test, y
 ## Deploying
 
 Deploying a marathon service, or metronome job is done by POSTing a json file to the correct endpoint.
-The mesos framework will then request enough resources from mesos to run the task. If mesos has the resources it will 
+The mesos framework will then request enough resources from mesos to run the task. If mesos has the resources it will

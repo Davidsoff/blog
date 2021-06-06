@@ -20,7 +20,7 @@ There are multiple phases to building out development clusters:
 
 ### Onboarding
 
-get users set up to use the dev cluster, 
+get users set up to use the dev cluster,
 
 ### Developing
 
