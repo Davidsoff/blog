@@ -1,23 +1,54 @@
 [build]
-publish = "public"
-command = "hugo --gc --minify"
+  publish = "public"
+  command = "hugo --gc --minify"
 
 [context.production.environment]
-HUGO_VERSION = "0.83.1"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
+  HUGO_VERSION = "0.83.1"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
-command = "hugo --gc --minify --buildFuture --buildDrafts -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc --minify --buildFuture --buildDrafts -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
-HUGO_VERSION = "0.83.1"
+  HUGO_VERSION = "0.83.1"
 
 [context.branch-deploy]
-command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "0.83.1"
+  HUGO_VERSION = "0.83.1"
 
 [context.next.environment]
-HUGO_ENABLEGITINFO = "true"
+  HUGO_ENABLEGITINFO = "true"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+[[plugins]]
+  package = "netlify-plugin-hugo-cache-resources"
+
+[[context.production.plugins]]
+  package = "netlify-plugin-minify-html"
+
+[[context.production.plugins]]
+  package = "netlify-plugin-hashfiles"
+
+[[context.production.plugins]]
+  package = "@netlify/plugin-sitemap"
+
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = false
+[build.processing.js]
+  bundle = true
+  minify = false
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
+
+[context.deploy-preview.processing]
+  skip_processing = true
