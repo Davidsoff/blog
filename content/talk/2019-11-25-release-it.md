@@ -1,5 +1,5 @@
 ---
-title: Release It
+title: Release It!
 date: 2019-11-26T10:53:14.000Z
 draft: true
 summary: Release It
