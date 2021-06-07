@@ -12,7 +12,7 @@ collections:
     folder: 'content/blog'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'blog/{{slug}}'
+    preview_path: 'blog/{{year}}-{{month}}-{{day}}-{{slug}}'
     format: yaml-frontmatter
     editor:
       preview: false
@@ -25,7 +25,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'string', requires: false}
+      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'talks'
     label: 'Talks'
@@ -33,7 +33,7 @@ collections:
     folder: 'content/talk'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'talk/{{slug}}'
+    preview_path: 'talk/{{year}}-{{month}}-{{day}}-{{slug}}'
     format: yaml-frontmatter
     editor:
       preview: false
@@ -46,5 +46,6 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'string', requires: false}
+      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
+      - { label: 'Slides', name: 'slides', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
