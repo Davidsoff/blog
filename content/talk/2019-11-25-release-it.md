@@ -1,6 +1,6 @@
 ---
 title: Release It!
-date: 2019-11-26T10:53:14.000Z
+date: 2021-06-07T09:55:42.291Z
 draft: true
 summary: Release It
 slides: 2019-11-01-release-it
