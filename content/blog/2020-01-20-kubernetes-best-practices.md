@@ -1,7 +1,6 @@
 ---
 title: "Kubernetes Best Practices"
 date: 2020-01-20T11:30:50+01:00
-draft: true
 summary: "Kubernetes Best Practices"
 ---
 

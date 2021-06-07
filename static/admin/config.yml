@@ -21,8 +21,6 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
-      - label: Drafts
-        field: draft
     fields:
       - label: 'Title'
         name: 'title'
@@ -46,7 +44,7 @@ collections:
     public_folder: ''
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'presentation/{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: 'presentation/{{slug}}'
     format: yaml-frontmatter
     editor:
       preview: true
@@ -54,8 +52,6 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
-      - label: Drafts
-        field: draft
     fields:
       - label: 'Title'
         name: 'title'
@@ -72,6 +68,10 @@ collections:
         widget: 'boolean'
         default: false
         required: false
+      - label: "Slug"
+        name: slug
+        widget: hidden
+        default: "{{year}}-{{month}}-{{day}}-{{slug}}"
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
@@ -89,8 +89,6 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
-      - label: Drafts
-        field: draft
     fields:
       - label: 'Title'
         name: 'title'

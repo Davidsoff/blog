@@ -1,7 +1,6 @@
 ---
 title: "Release it!"
 date: 2019-11-01T15:42:04+01:00
-draft: false
 summary: A talk about building software that can survive production.
 slug: 2019-11-01-release-it
 viz: true

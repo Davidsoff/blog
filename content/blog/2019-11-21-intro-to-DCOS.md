@@ -1,7 +1,6 @@
 ---
 title: "Intro to DC/OS"
 date: 2019-11-21T10:43:45+01:00
-draft: true
 summary: "An introduction to DC/OS, mesos, marathon and metronome."
 ---
 
