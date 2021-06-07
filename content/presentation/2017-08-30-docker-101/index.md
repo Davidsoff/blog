@@ -2,6 +2,7 @@
 title: Docker 101
 date: 2017-08-30T16:12:32+01:00
 summary: An introductory look at Docker
+slug: 2017-08-30-docker-101
 ---
 
 layout: true
@@ -16,9 +17,9 @@ By David Soff
 
 ---
 
-## Before I start:
+## Before I start
 
-please clone https://github.com/Davidsoff/docker101 for the hands-on part
+please clone <https://github.com/Davidsoff/docker101> for the hands-on part
 
 ---
 
@@ -58,7 +59,7 @@ create a build description in a Dockerfile
 ## building images pt. 2
 
 ```bash
-$ docker build -t my-image .
+docker build -t my-image .
 ```
 
 ---
@@ -66,7 +67,7 @@ $ docker build -t my-image .
 ## running images
 
 ```bash
-$ docker run --name my-container -p 8080:80 my-image
+docker run --name my-container -p 8080:80 my-image
 ```
 
 ---
@@ -74,7 +75,7 @@ $ docker run --name my-container -p 8080:80 my-image
 ## viewing containers
 
 ```bash
-$ docker ps
+docker ps
 ```
 
 ---
@@ -82,21 +83,23 @@ $ docker ps
 ## stopping images
 
 ```bash
-$ docker kill my-container
+docker kill my-container
 ```
 
 ---
 
-## Hands-on time!
+## Hands-on time
 
 ---
 
 ## Static application
+
 simple serving of html files
 
 ---
 
 ## Dynamic application
+
 simple customised Hello World spring boot application
 
 ---
@@ -127,4 +130,4 @@ simple customised Hello World spring boot application
 
 ---
 
-## Thank you!
+## Thank you

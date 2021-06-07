@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-site_url: https://your-site.com
+  squash_merges: true
+site_url: https://davidsoff.netlify.app
 media_folder: static/images/uploads
 public_folder: /images/uploads
 publish_mode: editorial_workflow
@@ -40,6 +41,9 @@ collections:
     label: 'Presentations'
     label_singular: 'Presentation'
     folder: 'content/presentation'
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     preview_path: 'presentation/{{year}}-{{month}}-{{day}}-{{slug}}'
@@ -103,8 +107,8 @@ collections:
         widget: "relation"
         collection: "presentations"
         search_fields: ["title", "summary"]
-        value_field: "title"
-        display_fields: ["title", "summary"]
+        value_field: "slug"
+        display_fields: ["title"]
       - label: 'Body'
         name: 'body'
         widget: 'markdown'

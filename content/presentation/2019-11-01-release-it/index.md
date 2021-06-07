@@ -3,6 +3,7 @@ title: "Release it!"
 date: 2019-11-01T15:42:04+01:00
 draft: false
 summary: A talk about building software that can survive production.
+slug: 2019-11-01-release-it
 viz: true
 ---
 
@@ -12,7 +13,7 @@ class: center, middle
 
 ---
 
-# Release it!
+# Release it
 
 ## Production ready systems
 
@@ -22,7 +23,7 @@ By: David Soff
 
 ---
 
-# Software is only useful in production.
+# Software is only useful in production
 
 But most software is not necceseraly written with production in mind.
 
@@ -49,7 +50,7 @@ Software only delivers value in production.
 
 ---
 
-# Failure is expensive.
+# Failure is expensive
 
 ???
 
@@ -61,7 +62,7 @@ A single broken request handler can bring down a server.
 
 ---
 
-## Failure is ~~expensive~~ expected.
+## Failure is ~~expensive~~ expected
 
 ---
 
@@ -85,7 +86,7 @@ A reboot of the affected applications fixed the problems
 
 # Goal
 
-## Prevent bugs from causing a chain of failures.
+## Prevent bugs from causing a chain of failures
 
 ---
 layout: true
@@ -166,7 +167,7 @@ I will be talking about these specific antipatterns.
 
 ???
 
-These happen in horizontally scaled apps. Once one of the nodes in the group crashes, the loadbalancer will distribute the load of that node to the other healthy nodes which as a result might also start failing. worst case this keeps happening untill all nodes are down and your service is unreachable. 
+These happen in horizontally scaled apps. Once one of the nodes in the group crashes, the loadbalancer will distribute the load of that node to the other healthy nodes which as a result might also start failing. worst case this keeps happening untill all nodes are down and your service is unreachable.
 
 IT may be the beginning of a cascading failure
 
@@ -194,7 +195,6 @@ These happen when an outage in one service also causes failures in other upstrea
 # Cascading failures
 
 ![cascade3](graphs/cascade3.png)
-
 
 ---
 
@@ -294,7 +294,7 @@ Can be used for ensuring outgoing calls don't keep the system hanging forever. T
 
 ???
 
-- Best used in conjunction with timeouts. 
+- Best used in conjunction with timeouts.
 - They trigger on number of errors.
 - A tripped circuitbreaker is bad and should be alerted on.
 
@@ -323,21 +323,16 @@ Can be used for ensuring outgoing calls don't keep the system hanging forever. T
 - Fail as fast as possible by checking your dependencies before doing big computations.
 - Don't wait for resources to become available. the upstream system should be handling failure responses.
 
-
 Example:
 
 A print shop needs the fonts to be attached to a job otherwise the printer will pront a full black page.
 The printer should therefore verify that the fonts are correctly attached before starting the full print run. Otherwise it should fail with a descriptive error message.
 
-
-
 ---
 
-# Test harnesses 
+# Test harnesses
 
 #### (AKA evil-twin service)
-
-
 
 ???
 
