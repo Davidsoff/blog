@@ -23,10 +23,19 @@ collections:
       - label: Drafts
         field: draft
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Summary'
+        name: 'summary'
+        widget: 'string'
+        required: false
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
   - name: 'presentations'
     label: 'Presentations'
     label_singular: 'Presentation'
@@ -36,7 +45,7 @@ collections:
     preview_path: 'presentation/{{year}}-{{month}}-{{day}}-{{slug}}'
     format: yaml-frontmatter
     editor:
-      preview: false
+      preview: true
     view_groups:
       - label: Year
         field: date
@@ -44,11 +53,24 @@ collections:
       - label: Drafts
         field: draft
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
-      - { label: 'Use Graphviz', name: 'viz', widget: 'boolean', default: false, required: false}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Summary'
+        name: 'summary'
+        widget: 'string'
+        required: false
+      - label: 'Use Graphviz'
+        name: 'viz'
+        widget: 'boolean'
+        default: false
+        required: false
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
   - name: 'talks'
     label: 'Talks'
     label_singular: 'Talk'
@@ -66,8 +88,23 @@ collections:
       - label: Drafts
         field: draft
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
-      - { label: 'Slides', name: 'slides', widget: 'datetime' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Summary'
+        name: 'summary'
+        widget: 'string'
+        required: false
+      - label: 'Slides'
+        name: 'slides'
+        widget: "relation"
+        collection: "presentations"
+        search_fields: ["title", "summary"]
+        value_field: "title"
+        display_fields: ["title", "summary"]
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
