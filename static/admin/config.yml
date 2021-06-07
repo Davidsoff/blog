@@ -27,6 +27,28 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Summary', name: 'summary', widget: 'string', required: false}
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'presentations'
+    label: 'Presentations'
+    label_singular: 'Presentation'
+    folder: 'content/presentation'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: 'presentation/{{year}}-{{month}}-{{day}}-{{slug}}'
+    format: yaml-frontmatter
+    editor:
+      preview: false
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Summary', name: 'summary', widget: 'string', required: false}
+      - { label: 'Use Graphviz', name: 'viz', widget: 'boolean', default: false, required: false}
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'talks'
     label: 'Talks'
     label_singular: 'Talk'
