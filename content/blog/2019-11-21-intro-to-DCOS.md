@@ -2,6 +2,7 @@
 title: "Intro to DC/OS"
 date: 2019-11-21T10:43:45+01:00
 summary: "An introduction to DC/OS, mesos, marathon and metronome."
+draft: true
 ---
 
 DC/OS is a product by D2IQ (formerly Mesosphere). It is based on [Apache Mesos](http://mesos.apache.org/).

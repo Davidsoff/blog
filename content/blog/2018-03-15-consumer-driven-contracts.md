@@ -1,6 +1,7 @@
 ---
 title: "Consumer Driven Contracts"
 date: 2018-03-15T16:12:32+01:00
+draft: false
 ---
 
 This post groups all sources I have found useful when preparing my presentation on Consumer Driven Contract.

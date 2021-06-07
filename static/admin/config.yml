@@ -13,7 +13,7 @@ collections:
     folder: 'content/blog'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'blog/{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: 'blog/{{slug}}'
     format: yaml-frontmatter
     editor:
       preview: false
@@ -21,6 +21,8 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
+      - label: Draft status
+        field: draft
     fields:
       - label: 'Title'
         name: 'title'
@@ -52,6 +54,8 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
+      - label: Draft status
+        field: draft
     fields:
       - label: 'Title'
         name: 'title'
@@ -81,7 +85,7 @@ collections:
     folder: 'content/talk'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'talk/{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: 'talk/{{slug}}'
     format: yaml-frontmatter
     editor:
       preview: false
@@ -89,6 +93,8 @@ collections:
       - label: Year
         field: date
         pattern: \d{4}
+      - label: Draft status
+        field: draft
     fields:
       - label: 'Title'
         name: 'title'

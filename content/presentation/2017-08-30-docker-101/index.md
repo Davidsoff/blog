@@ -2,7 +2,8 @@
 title: Docker 101
 date: 2017-08-30T16:12:32+01:00
 summary: An introductory look at Docker
-slug: 2017-08-30-docker-101
+slug: "2017-08-30-docker-101"
+draft: false
 ---
 
 layout: true

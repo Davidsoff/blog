@@ -2,6 +2,7 @@
 title: "Kubernetes Best Practices"
 date: 2020-01-20T11:30:50+01:00
 summary: "Kubernetes Best Practices"
+draft: true
 ---
 
 ## Basic service knowledge

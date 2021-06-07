@@ -3,6 +3,7 @@ title: "Intro to DNS"
 date: 2019-11-11T12:55:23+01:00
 summary: A short introduction into the innerworkings of DNS
 slug: 2019-11-11-dns
+draft: false
 ---
 layout: true
 
