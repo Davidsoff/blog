@@ -53,9 +53,10 @@ please clone <https://github.com/Davidsoff/docker101> for the hands-on part
 
 ## Anatomy of a Dockerfile
 
-Dockerfile is build in layers
+Dockerfile is built in layers
 
 Every line in the file is a layer that has a unique hash.
+
 This means layers can be reused between builds.
 
 ---
@@ -124,6 +125,10 @@ COPY html /usr/share/nginx/html
 EXPOSE 80
 ```
 
+`docker build -t static .`
+
+`docker run -p 3000:80 static`
+
 ---
 
 ## Dynamic application
@@ -144,6 +149,12 @@ EXPOSE 8080
 ENTRYPOINT exec java $JAVA_OPTS -jar build/libs/app.jar
 ```
 
+???
+
+`docker build -t dynamic .`
+
+`docker run -p8080:8080 dynamic `
+
 ---
 
 ## Container orchestration
@@ -159,6 +170,8 @@ ENTRYPOINT exec java $JAVA_OPTS -jar build/libs/app.jar
 
 - Applications need storage
 - One process per container
+
+## Docker compose configuration
 
 ### **`compose.yaml`**
 
@@ -182,6 +195,7 @@ services:
 ```
 
 `docker compose up --build`
+
 `docker compose down`
 ---
 
@@ -190,6 +204,8 @@ services:
 - Separates build environment and runtime environment
 - Optimised containers for each role
 - Allows for very small containers
+
+## Multistage example
 
 ```Dockerfile
 FROM gradle:alpine AS builder
@@ -206,6 +222,12 @@ EXPOSE 8080
 
 ENTRYPOINT exec java $JAVA_OPTS -jar /app/app.jar
 ```
+
+???
+
+`docker build -t multistage .`
+
+`docker run -p8080:8080 multistage`
 
 ---
 
