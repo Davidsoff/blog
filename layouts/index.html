@@ -12,11 +12,22 @@
         </div>
         <h2 class="subtitle is-6 date">{{ .Date.Format "January 2, 2006" }} <span class="section">{{ .Section | humanize }}</span></h2>
         
-        <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
+        <h1 class="title">
+          {{ if .Params.canonicalUrl }}
+          <a rel="canonical" href="{{ .Params.canonicalUrl }}">
+          {{ else }}
+          <a rel="canonical" href="{{ .RelPermalink }}">
+          {{ end }}
+            {{ .Title }}
+          </a>{{ if .Draft }} ::Draft{{ end }}</h1>
         <div class="content">
             {{ .Summary | plainify | safeHTML }}
             {{ if .Truncated }}
-            <a class="button is-link" href="{{ .Permalink }}" style="height:28px">
+              {{ if .Params.canonicalUrl }}
+              <a class="button is-link" style="height:28px" href="{{ .Params.canonicalUrl }}">
+              {{ else }}
+              <a class="button is-link" style="height:28px"  href="{{ .RelPermalink }}">
+              {{ end }}
             Read more
             </a>
             {{ end }}
