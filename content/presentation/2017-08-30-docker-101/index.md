@@ -47,21 +47,40 @@ please clone <https://github.com/Davidsoff/docker101> for the hands-on part
 
 ## How to use Docker?
 
- Download it from [docker.com](https://www.docker.com/community-edition)
+ Download it from [docker.com](https://www.docker.com/get-started/)
 
 ---
 
-## building images pt. 1
+## Anatomy of a Dockerfile
 
-create a build description in a Dockerfile
+Dockerfile is build in layers
+
+Every line in the file is a layer that has a unique hash.
+This means layers can be reused between builds.
 
 ---
 
-## building images pt. 2
+## A simple Dockerfile
+
+```Dockerfile
+FROM nginx:alpine
+
+COPY html /usr/share/nginx/html
+
+EXPOSE 80
+```
+
+---
+
+## Building images
 
 ```bash
 docker build -t my-image .
 ```
+
+???
+
+docker build looks for Dockerfile in the context directory by default
 
 ---
 
@@ -97,33 +116,96 @@ docker kill my-container
 
 simple serving of html files
 
+```Dockerfile
+FROM nginx:alpine
+
+COPY html /usr/share/nginx/html
+
+EXPOSE 80
+```
+
 ---
 
 ## Dynamic application
 
 simple customised Hello World spring boot application
 
+```Dockerfile
+FROM gradle:alpine
+
+ADD awesome_application .
+
+RUN gradle build
+
+ENV JAVA_OPTS=""
+
+EXPOSE 8080
+
+ENTRYPOINT exec java $JAVA_OPTS -jar build/libs/app.jar
+```
+
 ---
 
-## Multi container setups
+## Container orchestration
+
+- Docker compose
+    Lightweight container orchestration, Excelent for local development
+- Kubernetes
+    Production grade container orchestration.
+
+---
+
+## Multi container setup
 
 - Applications need storage
 - One process per container
 
----
+### **`compose.yaml`**
 
-## Docker Compose
+```yaml
+version: '3'
 
-- lightweight container orchestration
+services:
+  application:
+    build: .
+    ports:
+      - "4001:4000"
+    depends_on:
+      - postgres
 
+  postgres:
+    image: "postgres:alpine"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=multi_container_application_dev
+```
+
+`docker compose up --build`
+`docker compose down`
 ---
 
 ## Multistage builds
 
-- New feature in Docker 17.05
 - Separates build environment and runtime environment
 - Optimised containers for each role
 - Allows for very small containers
+
+```Dockerfile
+FROM gradle:alpine AS builder
+
+ADD awesome_application .
+RUN gradle build
+
+FROM openjdk:jre-alpine
+
+ENV JAVA_OPTS=""
+COPY --from=builder /home/gradle/build/libs/app.jar /app/app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT exec java $JAVA_OPTS -jar /app/app.jar
+```
 
 ---
 
