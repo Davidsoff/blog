@@ -14,7 +14,7 @@ enableRobotsTXT = true
 [params.rss] # Adding this tag enables RSS feed
 includeContent = true # Includes whole content in rss
 authorName = "David Soff" # Author full name
-authorEmail = "david@soff.nl" # Author email
+authorEmail = "blog@davidsoff.nl" # Author email
 
 [params.info]
 adsense = "" # Adsense ID (ID only, without ca-pub-)
@@ -30,7 +30,7 @@ disqusOnDemand = true
 [params.social]
 twitter = "SoffDavid"
 github = "DavidSoff"
-email = "david@soff.nl"
+email = "blog@davidsoff.nl"
 linkedin = "davidsoff"
 rss = "index.xml"
 
